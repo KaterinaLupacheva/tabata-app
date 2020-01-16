@@ -1,0 +1,15 @@
+@import '../../assets/scss/mixins.scss';
+
+.timer-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 70vw;
+    padding-right: 10%;
+
+    @include breakpoint {
+        width: 100%;
+        justify-content: space-evenly;
+        padding: 0;
+    }
+}

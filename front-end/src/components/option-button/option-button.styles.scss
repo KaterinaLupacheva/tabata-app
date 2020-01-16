@@ -1,0 +1,28 @@
+@import '../../assets/scss/mixins.scss';
+
+.option-button{
+    display: flex;
+    align-items: center;
+    width: 30%;
+    height: 10vh;
+    margin: 1vw;
+    border: 1.5px solid var(--ramonak-color);
+    border-radius: 10px;
+    color: var(--ramonak-color);
+    cursor: pointer;
+
+    @include breakpoint {
+        width: 80%;
+    }
+
+    &.pressed{
+        background-color: var(--ramonak-color);
+        color: white;
+    }
+
+    .option{
+        font-size: 24px;
+        width: 50%;
+        margin: 0 auto;
+    }
+}

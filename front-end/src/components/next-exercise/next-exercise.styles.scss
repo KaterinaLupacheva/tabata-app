@@ -1,0 +1,17 @@
+.next-exercise {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10%;
+
+    &.visible {
+        visibility: visible;
+        text-align: center;
+        font-size: 48px;
+        color: white;
+    }
+
+    .name {
+        margin: 30px;
+    }
+}

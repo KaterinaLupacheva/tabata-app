@@ -1,0 +1,31 @@
+@import '../../assets/scss/mixins.scss';
+
+.parameters{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(to bottom left, black 60%, #E0314B);
+    height: 90vh;
+    width: 80vw;
+    margin: auto;
+    border-radius: 20px;
+
+    @include breakpoint {
+        overflow: auto;
+        width: 100%;
+    }
+
+    .button-groups{
+        height: 80vh;
+
+        @include breakpoint {
+            overflow: auto;
+        }
+    }
+
+    .title{
+        color:  white;
+        text-transform: uppercase;
+    }
+}

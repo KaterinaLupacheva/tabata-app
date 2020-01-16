@@ -1,0 +1,7 @@
+const DurationActionTypes = {
+    FETCH_DURATIONS: 'FETCH_DURATIONS',
+    CHANGE_PRESSED_DURATION: 'CHANGE_PRESSED_DURATION',
+    FIND_PRESSED_DURATION: 'FIND_PRESSED_DURATION'
+};
+
+export default DurationActionTypes;

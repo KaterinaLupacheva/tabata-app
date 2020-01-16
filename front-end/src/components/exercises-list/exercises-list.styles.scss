@@ -1,0 +1,43 @@
+@import '../../assets/scss/mixins.scss';
+
+.exercises-list-container {
+    display: flex;
+    flex-direction: row;
+    height: 60vh;
+
+    @include breakpoint {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .icon-container{
+       margin: auto;    
+       visibility: hidden;
+
+       &.visible{
+            visibility: visible;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+
+    .exercises-list{
+        width: 50vw;
+
+        @include breakpoint {
+            width: 70vw;
+        }
+
+        .row{
+            display: flex;
+            flex-direction: row;
+            margin: 5% 0;
+
+            @include breakpoint {
+                justify-content: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+@import '../../assets/scss/mixins.scss';
+
+.exercises-preview {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 55vh;
+    padding-left: 8%;
+
+    .exercises-list{
+        overflow-y: scroll;
+        padding-right: 20px;
+
+        @include breakpoint {
+            display: none;
+        }
+    }
+
+    .image-or-next {
+        width: 55vw;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+
+        @include breakpoint {
+            width: 100%;
+        }
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--ramonak-color);
+        border-radius: 10px;
+    }
+}

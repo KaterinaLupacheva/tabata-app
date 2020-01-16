@@ -1,0 +1,37 @@
+@import '../../assets/scss/mixins.scss';
+
+.create-workout-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(to bottom left, black 60%, #E0314B);
+    height: 90vh;
+    width: 80vw;
+    margin: auto;
+    border-radius: 20px;
+
+    @include breakpoint {
+        overflow: auto;
+        width: 100%;
+    }
+
+    .chose-exercises{
+        font-size: 30px;
+        color: var(--ramonak-color);
+    }
+
+    .button-group-container {
+        border-bottom: 3px solid var(--ramonak-color);
+
+        @include breakpoint {
+            display: none;
+        }
+    }
+
+    .exercises-container {
+        @include breakpoint {
+            height: 100%;
+        }
+    }
+}

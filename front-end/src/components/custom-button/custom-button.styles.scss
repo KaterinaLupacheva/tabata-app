@@ -1,0 +1,43 @@
+@import '../../assets/scss/mixins.scss';
+
+.custom-button {
+    min-width: 150px;
+    height: 10vh;
+    letter-spacing: 0.5px;
+    line-height: 50px;
+    background-color: var(--ramonak-color);
+    color: white;
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    border: 1.5px solid var(--ramonak-color);
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 35px;
+
+    @include breakpoint {
+      min-width: 40vw;
+      margin: 0;
+    }
+  
+    &:hover {
+      background-color: white;
+      color: var(--ramonak-color);
+    }
+
+    &.google-sign-in {
+      background-color: #4285f4;
+      color: white;
+  
+      &:hover {
+        background-color: #357ae8;
+        border: none;
+      }
+    }
+
+    &.disabled {
+      pointer-events: none;
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+  }

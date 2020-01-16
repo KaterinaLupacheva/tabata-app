@@ -1,0 +1,12 @@
+@import '../../assets/scss/mixins.scss';
+
+.startpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 80px;
+
+    @include breakpoint {
+      padding: 20px;
+    }
+}
