@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
 import './App.css';
 
+import LandingPage from './pages/landing-page/landing-page.component';
 import StartPage from './pages/startpage/startpage.component';
 import WorkoutPage from './pages/workout-page/workout-page.component';
 import CreateWorkoutPage from './pages/create-workout-page/create-workout-page.component';
@@ -46,6 +47,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path='/' component={StartPage} />
+          <Route exact path='/landing' component={LandingPage} />
           <Route path='/workout' component={WorkoutPage} />
           <Route exact path='/create-workout' component={CreateWorkoutPage} />
           <Route exact path='/circuits' component={CircuitsPage} />

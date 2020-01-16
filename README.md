@@ -22,6 +22,7 @@ The app is still work in progress. New features and bug fixes are added constant
 ### Front-end
 
 - React.js
+- Redux
 - SCSS
 - Responsive design
 
