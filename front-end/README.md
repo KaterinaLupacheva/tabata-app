@@ -6,7 +6,7 @@ Fitness Web App based on [Tabata](https://en.wikipedia.org/wiki/High-intensity_i
 
 - Random workout - every time you'll get a new set of exercises based on chosen workout duration (4, 8 or 12 minutes), number of sets (1, 2 or 4) and focus muscle group (whole body, upper body, lower body, cardio).
 - Create workout - chose the exercises from the list, chose number of sets and you are good to go!
-- Tabata timer - 20 sec of workout - 10 sec rest.
+- Tabata timer - 20 sec of workout - 10 sec rest with voice countdown.
 - Notification about next exercise in workout - are shown during rest period.
 - List of exercises in workout - active exercises is highlighted. Autoscroll to active exercise.
 - Video of exercises - are shown during workout.
