@@ -1,0 +1,44 @@
+.landing-page-container{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    .main-section{
+        color: var(--ramonak-color);
+
+        .main-title{
+            font-size: 80px;
+            font-weight: 700;
+            line-height: 85px;
+        }
+
+        .main-subtitle{
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 55px;
+        }
+
+        .cta-button{
+            width: 200px;
+            height: 50px;
+            background-color: var(--ramonak-color);
+            color: white;
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: bolder;
+            border: 1.5px solid var(--ramonak-color);
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 0;
+            transition: background-color .5s;
+
+            &:hover {
+                background-color: white;
+                color: var(--ramonak-color);
+            }
+        }
+    }
+}
