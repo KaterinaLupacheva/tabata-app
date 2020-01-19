@@ -12,7 +12,7 @@ const Header = ({ currentUser }) => {
   const isInWebAppiOS = (window.navigator.standalone == true);
   const isInWebAppChrome = (window.matchMedia('(display-mode: standalone)').matches);
   let href = 'https://ramonak.io/';
-  if (isInWebAppChrome || isInWebAppChrome) {
+  if (isInWebAppiOS || isInWebAppChrome) {
     href = 'https://tabata.ramonak.io';
   }
   return (
