@@ -8,9 +8,16 @@ import { auth } from '../../firebase/firebase.utils';
 
 import './header.styles.scss';
 
-const Header = ({ currentUser }) => (
+const Header = ({ currentUser }) => {
+  const isInWebAppiOS = (window.navigator.standalone == true);
+  const isInWebAppChrome = (window.matchMedia('(display-mode: standalone)').matches);
+  let href = 'https://ramonak.io/';
+  if (isInWebAppChrome || isInWebAppChrome) {
+    href = 'https://tabata.ramonak.io';
+  }
+  return (
   <div className='header'>
-    <a className='logo-container' href='https://ramonak.io/'>
+    <a className='logo-container' href={href}>
       <img src={logo} alt='Logo' className='logo' />
     </a>
     <div className='options'>
@@ -28,7 +35,7 @@ const Header = ({ currentUser }) => (
       )} */}
     </div>
   </div>
-);
+)};
 
 const matStateToProps = state => ({
     currentUser: state.user.currentUser
