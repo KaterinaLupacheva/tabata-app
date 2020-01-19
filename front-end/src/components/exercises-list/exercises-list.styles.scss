@@ -3,7 +3,7 @@
 .exercises-list-container {
     display: flex;
     flex-direction: row;
-    height: 60vh;
+    height: 55vh;
 
     @include breakpoint {
         justify-content: center;
@@ -33,7 +33,7 @@
         .row{
             display: flex;
             flex-direction: row;
-            margin: 5% 0;
+            margin: 3% 0;
 
             @include breakpoint {
                 justify-content: center;
