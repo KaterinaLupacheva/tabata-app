@@ -33,7 +33,7 @@
         width: 100%;
         
         @include breakpoint {
-            height: 85%;
+            overflow: auto;
         }
     }
 }
