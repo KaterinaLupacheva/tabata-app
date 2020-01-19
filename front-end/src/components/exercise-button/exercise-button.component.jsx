@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import EllipsisText from 'react-ellipsis-text';
 
 import './exercise-button.styles.scss';
 import { toggleButtonPressed } from '../../redux/exercises/exercises.actions';
@@ -12,12 +11,9 @@ const ExerciseButton = ({ exercise, toggleExercise, toggleButtonPressed }) => {
         <div 
             className={`${isPressed ? 'pressed' : ''} exercise-button`} 
             onClick={() => {toggleButtonPressed(exercise); toggleExercise(exercise)}} >
-                <EllipsisText 
-                    className='exercise-name' 
-                    text={name.toLowerCase()} 
-                    length={'20'}
-                    tooltip={name.toLowerCase()} 
-                />
+                <div className='exercise-name'>     
+                    {name.toLowerCase()}
+                </div>
         </div>
     )
 };

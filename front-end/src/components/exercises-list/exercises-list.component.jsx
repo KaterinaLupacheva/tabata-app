@@ -30,35 +30,44 @@ const checkPressed = (exercises, workout) => {
 
 const ExercisesList = ({ exercises, indexOfFirstEx, numOfShowingEx, showNextExercises, showPrevExercises, workout }) => {
     const rows = countExercisesToShow(exercises, indexOfFirstEx, numOfShowingEx, workout);
-   return (
-       <div className='exercises-list-container'>
-           <div 
-                className={`${(indexOfFirstEx-numOfShowingEx) >= 0 ? 'visible' : ''} icon-container`}
-                onClick={() => showPrevExercises()}
-            >
-                <ArrowLeftIcon />
-           </div>
-            <div className='exercises-list' >
-                {
-                    rows.map(row => (
-                        <div className='row' key={rows.indexOf(row)}>
-                    {
-                        row.map(ex => (
-                            <ExerciseButton key={ex.id} exercise={ex}/>
-                        ))
-                    }
-                        </div>
-                    ))
-                }                     
+    if(window.screen.availWidth > 800 ) {
+         return(
+            <div className='exercises-list-container'>
+                <div 
+                     className={`${(indexOfFirstEx-numOfShowingEx) >= 0 ? 'visible' : ''} icon-container`}
+                     onClick={() => showPrevExercises()}
+                 >
+                     <ArrowLeftIcon />
+                </div>
+                 <div className='exercises-list' >
+                     {
+                         rows.map(row => (
+                             <div className='row' key={rows.indexOf(row)}>
+                         {
+                             row.map(ex => (
+                                 <ExerciseButton key={ex.id} exercise={ex}/>
+                             ))
+                         }
+                             </div>
+                         ))
+                     }                     
+                 </div>
+                 <div 
+                     className={`${(indexOfFirstEx+numOfShowingEx) < exercises.length ? 'visible' : ''} icon-container`} 
+                     onClick={() => showNextExercises()}
+                 >
+                     <ArrowRightIcon />
+                 </div>
+             </div>)
+    } else {
+        return (
+            <div className='exercises-column'>
+                {exercises.sort((a,b) => a.name.localeCompare(b.name))
+                .map(ex => <ExerciseButton key={ex.id} exercise={ex}/>)}
             </div>
-            <div 
-                className={`${(indexOfFirstEx+numOfShowingEx) < exercises.length ? 'visible' : ''} icon-container`} 
-                onClick={() => showNextExercises()}
-            >
-                <ArrowRightIcon />
-            </div>
-        </div>
-   )
+        )
+    }
+   
 };
 
 const mapStateToProps = createStructuredSelector({

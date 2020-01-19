@@ -14,8 +14,8 @@
     color: var(--ramonak-color);
 
     @include breakpoint {
-        min-width: 30%;
-        min-height: 30%;
+        width: 100%;
+        margin: 0;
     }
 
     &.pressed{
@@ -28,7 +28,7 @@
         margin: auto;
 
         @include breakpoint {
-            font-size: medium;
+            font-size: xx-large;
         }
     }
 }

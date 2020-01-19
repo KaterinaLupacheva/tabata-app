@@ -13,6 +13,7 @@ import ExercisesList from '../../components/exercises-list/exercises-list.compon
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 import ButtonGroup from '../../components/button-group/button-group.component';
 import ArrowButton from '../../components/arrow-button/arrow-button.component';
+import NextButton from '../../components/next-button/next-button.component';
 
 const ExercisesListWithSpinner = WithSpinner(ExercisesList);
 
@@ -47,11 +48,11 @@ class CreateWorkoutPage extends React.Component {
                         handleOptionChange={option => this.handleOptionChange(option)}
                     />
                 </div>
-                <div className='exercises-container'>
-                    <ExercisesListWithSpinner isLoading={isExercisesFetching} {...this.props}/> 
+                <div className='exercises-container'>                       
+                    <ExercisesListWithSpinner isLoading={isExercisesFetching} {...this.props}/>
                 </div>
                 {workoutExercises.length > 0 ? 
-                    <ArrowButton path={'/circuits'}/> :
+                    <NextButton path={'/circuits'}/> :
                     ''
                 }
             </div>
