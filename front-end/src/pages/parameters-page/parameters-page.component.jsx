@@ -61,7 +61,7 @@ class ParametersPage extends React.Component {
                         }}
                     />
                 </div>
-                <NextButton />
+                <NextButton path='/workout'/>
             </div>
         )
     }
