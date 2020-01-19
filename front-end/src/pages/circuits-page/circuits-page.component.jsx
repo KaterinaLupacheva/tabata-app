@@ -6,7 +6,7 @@ import { fetchCircuits, changePressedCircuit, findPressedCircuit } from '../../r
 import { selectCircuitOptions } from '../../redux/circuit/circuit.selectors';
 import './circuits-page.styles.scss';
 import ButtonGroup from '../../components/button-group/button-group.component';
-import ArrowButton from '../../components/arrow-button/arrow-button.component';
+import NextButton from '../../components/next-button/next-button.component';
 
 class CircuitsPage extends React.Component {
     componentDidMount() {
@@ -25,7 +25,7 @@ class CircuitsPage extends React.Component {
                         this.props.findPressedCircuit(this.props.options);
                     }}
                 />
-                <ArrowButton path={'/workout'} />
+                <NextButton path={'/workout'} />
             </div>
         )
     }
