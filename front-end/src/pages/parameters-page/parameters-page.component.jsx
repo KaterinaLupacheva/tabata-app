@@ -10,7 +10,7 @@ import { fetchCircuits, changePressedCircuit, findPressedCircuit } from '../../r
 
 import './parameters-page.styles.scss';
 import ButtonGroup from '../../components/button-group/button-group.component';
-import ArrowButton from '../../components/arrow-button/arrow-button.component';
+import NextButton from '../../components/next-button/next-button.component';
 
 class ParametersPage extends React.Component {
     componentDidMount() {
@@ -61,7 +61,7 @@ class ParametersPage extends React.Component {
                         }}
                     />
                 </div>
-                <ArrowButton path={'/workout'}/>
+                <NextButton />
             </div>
         )
     }
