@@ -69,6 +69,11 @@ function registerValidSW(swUrl, config) {
               // At this point, the updated precached content has been fetched,
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
+              caches.keys().then(function(names) {
+                for (let name of names)
+                    caches.delete(name);
+              });
+              window.location.href = "./";
               console.log(
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
