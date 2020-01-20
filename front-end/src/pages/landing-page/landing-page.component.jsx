@@ -12,6 +12,11 @@ const LandingPage = () => (
                 <button className='cta-button'>Get Started</button>
             </Link>
         </div>
+        <div className='second section'>
+            Random - Everytime new workout
+            Easy to use - start in 10 secs
+            Timer - with sounds, classic period 20:10
+        </div>
     </div>
 );
 
