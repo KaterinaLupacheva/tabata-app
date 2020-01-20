@@ -37,7 +37,7 @@ class TimerWithButton extends React.Component {
 
     handleCompleteTimer = () => {
         const { workout, numberOfCircuits, currentCircuit, resetToInitialState, incrementCurrentCircuit,
-            toggleTimerColor } = this.props;
+            toggleTimerColor, toggleTimer } = this.props;
         if(workout[workout.length - 1].isActive !== true) {
             toggleTimerColor();
         } else if(workout[workout.length - 1].isActive === true 
@@ -46,6 +46,7 @@ class TimerWithButton extends React.Component {
                     resetToInitialState();
                     incrementCurrentCircuit();
                     toggleTimerColor();
+                    toggleTimer();
         }  else {
             this.props.handleCompleteTimer();
         }
