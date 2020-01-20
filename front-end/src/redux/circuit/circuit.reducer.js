@@ -1,5 +1,6 @@
 import CircuitActionTypes from './circuit.types';
 import { createArray, changePressed, findPressedOption } from '../param.utils';
+import { RESET_STATE } from '../reset.type';
 
 const INITIAL_STATE = {
     options: [],
@@ -29,6 +30,8 @@ const circuitReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentCircuit: state.currentCircuit + 1
             };
+        case RESET_STATE.type:
+            return INITIAL_STATE;
         default:
             return state;
     }
