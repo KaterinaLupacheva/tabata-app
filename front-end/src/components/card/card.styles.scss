@@ -1,0 +1,19 @@
+.card-container{
+    width: 20vw;
+    margin: 0 20px 50px 20px;
+    border: 1px ridge grey;
+    box-shadow: 10px 5px 5px black;
+
+    .card-title{
+        font-weight: bold;
+        font-size: x-large;
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 1px solid grey;
+    }
+
+    .card-description{
+        padding: 10px 20px;
+        font-size: larger;
+    }
+}
