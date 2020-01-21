@@ -1,9 +1,14 @@
-.cards-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    height: 80vh;
+.cards-overview{
     width: 100%;
-    padding: 50px;
+    display: flex;
+    flex-direction: column;
     border-bottom: 3px solid black;
+
+    .cards-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding-bottom: 50px;
+    }
 }
+

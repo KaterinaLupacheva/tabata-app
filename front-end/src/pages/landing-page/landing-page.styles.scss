@@ -8,7 +8,6 @@
 
     .main-section{
         color: var(--ramonak-color);
-        height: 80vh;
         width: 100%;
         border-bottom: 3px solid black;
 
@@ -23,26 +22,6 @@
             font-weight: 700;
             line-height: 55px;
         }
-
-        .cta-button{
-            width: 200px;
-            height: 50px;
-            background-color: var(--ramonak-color);
-            color: white;
-            font-size: 24px;
-            text-transform: uppercase;
-            font-weight: bolder;
-            border: 1.5px solid var(--ramonak-color);
-            border-radius: 10px;
-            cursor: pointer;
-            margin: 0;
-            transition: background-color .5s;
-
-            &:hover {
-                background-color: white;
-                color: var(--ramonak-color);
-            }
-        }
     }
 
     .tabata-app-divider{
@@ -52,6 +31,5 @@
         color: var(--ramonak-color);
         text-align: left;
         padding: 50px;
-        
     }
 }
