@@ -1,3 +1,5 @@
+@import '../../assets/scss/mixins.scss';
+
 .about-tabata{
     width: 100%;
     border-bottom: 3px solid black;
@@ -17,6 +19,10 @@
         font-size: larger;
         padding-left: 100px;
         color: white;
+
+        @include breakpoint {
+            padding-left: 20px;
+        }
         
         li {
             padding-bottom: 10px;
