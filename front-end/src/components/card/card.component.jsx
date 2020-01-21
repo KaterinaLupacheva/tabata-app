@@ -4,7 +4,7 @@ import DescriptionItem from '../description-item/description-item.component';
 
 import './card.styles.scss';
 
-const Card = ({ icon, title, description }) => (
+const Card = ({ id, icon, title, description }) => (
   <div className='card-container'>
     <div className='card-icon'>
       <IconContext.Provider value={{ color: '#E0314B', size: "7em" }}>
@@ -16,7 +16,7 @@ const Card = ({ icon, title, description }) => (
     </div>
     <div className='card-description'>
       {description.map(item => (
-        <DescriptionItem item={item} />
+        <DescriptionItem key={id} item={item} />
       ))}
     </div>
   </div>

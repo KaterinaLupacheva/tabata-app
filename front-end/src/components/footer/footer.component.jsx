@@ -6,8 +6,8 @@ import './footer.styles.scss';
 
 const Footer = () => (
     <div className='footer'>
-        {FOOTER_DATA.map(({ link, icon }) => (
-            <FooterIcon link={link} icon={icon} />
+        {FOOTER_DATA.map(({ id, link, icon }) => (
+            <FooterIcon key={id} link={link} icon={icon} />
         ))}
     </div>
 );

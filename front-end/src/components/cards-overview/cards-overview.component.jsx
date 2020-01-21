@@ -9,7 +9,7 @@ const CardsOverview = () => (
         <div className='cards-container'>
             {
                 DATA_FOR_CARDS.map(item => (
-                    <Card icon={item.icon} title={item.title} description={item.description} />
+                    <Card key={item.id} icon={item.icon} title={item.title} description={item.description} />
                 ))
             }
         </div>

@@ -5,6 +5,7 @@ import { MdAvTimer } from "react-icons/md";
 
 export const DATA_FOR_CARDS = [
     {
+        id: 0,
         icon: <FaRandom />,
         title: 'Random Workouts',
         description: [
@@ -13,6 +14,7 @@ export const DATA_FOR_CARDS = [
         ]
     },
     {
+        id: 1,
         icon: <GiRocketFlight />,
         title: 'Easy to Use',
         description: [ 'User-friendly interface',
@@ -20,6 +22,7 @@ export const DATA_FOR_CARDS = [
         ]
     },
     {
+        id: 2,
         icon: <MdAvTimer />,
         title: 'Timer',
         description: ['Classic Tabata timer: 20 secs - workout, 10 secs - rest',
