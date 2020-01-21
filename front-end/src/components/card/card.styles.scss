@@ -1,3 +1,5 @@
+@import '../../assets/scss/mixins.scss';
+
 .card-container{
     width: 20vw;
     margin: 0 10px;
@@ -5,6 +7,11 @@
     box-shadow: 10px 5px 5px black;
     background-image: linear-gradient(to bottom left, black 60%, #E0314B);
     color: white;
+
+    @include breakpoint {
+        width: 80%;
+        margin: 10px 0;
+    }
 
     .card-title{
         font-weight: bold;

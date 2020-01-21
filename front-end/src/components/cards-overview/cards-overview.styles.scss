@@ -1,3 +1,5 @@
+@import '../../assets/scss/mixins.scss';
+
 .cards-overview{
     width: 100%;
     display: flex;
@@ -9,6 +11,11 @@
         flex-direction: row;
         justify-content: space-evenly;
         padding-bottom: 50px;
+
+        @include breakpoint {
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }
 
