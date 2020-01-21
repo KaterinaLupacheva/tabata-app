@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import CardsOverview from '../../components/cards-overview/cards-overview.component';
+import AboutTabata from '../../components/about-tabata/about-tabata.component';
 import Footer from '../../components/footer/footer.component';
 
 import './landing-page.styles.scss';
@@ -14,6 +15,7 @@ const LandingPage = () => (
                 <button className='cta-button'>Get Started</button>
             </Link>
         </div>
+        <AboutTabata />
         <div className='tabata-app-divider'>
             Tabata App by Ramonak:
         </div>

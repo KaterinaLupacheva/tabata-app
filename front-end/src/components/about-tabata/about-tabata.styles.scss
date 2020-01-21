@@ -1,0 +1,22 @@
+.about-tabata{
+    width: 100%;
+    border-bottom: 3px solid black;
+
+    .about-tabata-title{
+        width: 100%;
+        font-size: xx-large;
+        font-weight: bolder;
+        color: var(--ramonak-color);
+        text-align: left;
+        padding: 50px;
+    }
+
+    .about-tabata-description{
+        text-align: left;
+        font-size: larger;
+        
+        li {
+            padding-bottom: 10px;
+        }
+    }
+}
