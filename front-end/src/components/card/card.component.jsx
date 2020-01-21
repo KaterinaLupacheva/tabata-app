@@ -1,14 +1,15 @@
 import React from 'react';
-import { FaRandom } from "react-icons/fa";
+// import { FaRandom } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
 import './card.styles.scss';
 
-const Card = ({ title, description }) => (
+const Card = ({ icon, title, description }) => (
   <div className='card-container'>
     <div className='card-icon'>
       <IconContext.Provider value={{ color: '#E0314B', size: "7em" }}>
-        <FaRandom />
+        {/* <icon /> */}
+        {icon}
       </IconContext.Provider>
     </div>
     <div className='card-title'>
