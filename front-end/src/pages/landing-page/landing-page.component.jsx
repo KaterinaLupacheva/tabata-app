@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import CardsOverview from '../../components/cards-overview/cards-overview.component';
+import Footer from '../../components/footer/footer.component';
 
 import './landing-page.styles.scss';
 
@@ -17,11 +18,11 @@ const LandingPage = () => (
             Tabata App by Ramonak:
         </div>
         <CardsOverview />
+        <Footer />
     </div>
 );
 
 export default LandingPage;
 
 //add subscribe to updates https://vanido.io/
-//stages how to start workout
-//benefits
+
