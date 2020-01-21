@@ -1,7 +1,9 @@
 .cards-container{
-    
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height: 50vh;
+    height: 80vh;
+    width: 100%;
+    padding: 50px;
+    border-bottom: 3px solid black;
 }

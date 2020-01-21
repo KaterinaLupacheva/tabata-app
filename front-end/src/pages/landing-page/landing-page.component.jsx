@@ -16,9 +16,7 @@ const LandingPage = () => (
         <div className='tabata-app-divider'>
             Tabata App by Ramonak:
         </div>
-        <div className='second-section'>
-            <CardsOverview />
-        </div>
+        <CardsOverview />
     </div>
 );
 

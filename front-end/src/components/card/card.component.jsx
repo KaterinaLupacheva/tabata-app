@@ -1,5 +1,6 @@
 import React from 'react';
 import { IconContext } from "react-icons";
+import DescriptionItem from '../description-item/description-item.component';
 
 import './card.styles.scss';
 
@@ -14,7 +15,9 @@ const Card = ({ icon, title, description }) => (
       {title}
     </div>
     <div className='card-description'>
-      {description}
+      {description.map(item => (
+        <DescriptionItem item={item} />
+      ))}
     </div>
   </div>
 );

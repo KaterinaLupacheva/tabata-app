@@ -7,16 +7,23 @@ export const DATA_FOR_CARDS = [
     {
         icon: <FaRandom />,
         title: 'Random Workouts',
-        description: 'Everytime a new workout'
+        description: [
+            'Everytime a new workout',
+            'No more predictable routines'
+        ]
     },
     {
         icon: <GiRocketFlight />,
         title: 'Easy to Use',
-        description: 'start in 10 secs'
+        description: [ 'User-friendly interface',
+                        'Start in 3 clicks'
+        ]
     },
     {
         icon: <MdAvTimer />,
         title: 'Timer',
-        description: 'with sounds, classic period 20:10'
+        description: ['Classic Tabata timer: 20 secs - workout, 10 secs - rest',
+                        'Voice countdown'
+        ]
     }
 ];
