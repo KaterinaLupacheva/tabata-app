@@ -9,9 +9,11 @@ const Footer = () => (
         <div className='footer-text'>
             I'd be glad to know your opinion about the app: 
         </div>
-        {FOOTER_DATA.map(({ id, link, icon }) => (
-            <FooterIcon key={id} link={link} icon={icon} />
-        ))}
+        <div className='footer-icons'>
+            {FOOTER_DATA.map(({ id, link, icon }) => (
+                <FooterIcon key={id} link={link} icon={icon} />
+            ))}
+        </div>
     </div>
 );
 
