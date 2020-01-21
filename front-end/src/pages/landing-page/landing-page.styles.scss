@@ -1,13 +1,16 @@
 .landing-page-container{
-    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
+    background-color: white;
 
     .main-section{
         color: var(--ramonak-color);
+        height: 80vh;
+        width: 100%;
+        border-bottom: 3px solid black;
 
         .main-title{
             font-size: 80px;
@@ -40,5 +43,19 @@
                 color: var(--ramonak-color);
             }
         }
+    }
+
+    .tabata-app-divider{
+        width: 100%;
+        font-size: xx-large;
+        font-weight: bolder;
+        color: var(--ramonak-color);
+        text-align: left;
+        padding: 50px;
+        border-bottom: 3px solid black;
+    }
+
+    .second-section{
+        padding: 50px;
     }
 }
