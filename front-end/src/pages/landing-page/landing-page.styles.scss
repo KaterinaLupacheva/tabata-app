@@ -4,12 +4,11 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-    background-color: white;
 
     .main-section{
         color: var(--ramonak-color);
         width: 100%;
-        border-bottom: 3px solid black;
+        height: 100vh;
 
         .main-title{
             font-size: 80px;

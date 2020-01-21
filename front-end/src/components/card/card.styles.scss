@@ -1,15 +1,17 @@
 .card-container{
     width: 20vw;
-    margin: 0 20px;
+    margin: 0 10px;
     border: 1px ridge grey;
     box-shadow: 10px 5px 5px black;
+    background-image: linear-gradient(to bottom left, black 60%, #E0314B);
+    color: white;
 
     .card-title{
         font-weight: bold;
         font-size: x-large;
         padding: 20px 0;
         text-align: center;
-        border-bottom: 1px solid grey;
+        // border-bottom: 1px solid grey;
     }
 
     .card-description{
