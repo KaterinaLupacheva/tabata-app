@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
 import './App.css';
@@ -44,7 +44,10 @@ class App extends React.Component {
   render() {
     return (
       <div className='container'>
-        <Header />
+        {
+          this.props.location.pathname !== '/about' ? <Header /> : null
+        }
+        
         <Switch>
           <Route exact path='/' component={StartPage} />
           <Route exact path='/about' component={LandingPage} />
@@ -76,4 +79,4 @@ const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));

@@ -15,8 +15,6 @@ const Header = ({ currentUser }) => {
   if (isInWebAppiOS || isInWebAppChrome) {
     href = '/';
   }
-  const path = window.location.pathname;
-  console.log('PATH ' + path);
   return (
   <div className='header'>
     <a className='logo-container' href={href}>
