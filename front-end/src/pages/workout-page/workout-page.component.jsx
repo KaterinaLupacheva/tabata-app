@@ -41,7 +41,6 @@ class WorkoutPage extends React.Component {
     }
 
     handleWorkoutStart = () => {
-        console.log('HERE')
         const { currentCircuit, workout, toggleTimer, toggleStart } = this.props;
         if(currentCircuit === 1 && workout.find(ex => ex.isActive === true) === undefined) {
             toggleTimer();
