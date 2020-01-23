@@ -24,6 +24,7 @@
 
         @include breakpoint {
             width: 100%;
+            flex-direction: column;
         }
     }
 

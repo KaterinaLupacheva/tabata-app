@@ -26,3 +26,8 @@ export const selectIsWorkoutFetching = createSelector(
     [selectWorkout],
     workout => workout.isFetching
 );
+
+export const selectActiveExercise = createSelector(
+    [selectWorkoutExercises],
+    exercises => exercises.find(ex => ex.isActive === true)
+);

@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectWorkoutExercises, selectIsImage, selectNextExerciseName } from '../../redux/workout/workout.selectors';
+import { selectWorkoutExercises, selectIsImage, selectNextExerciseName, selectActiveExercise } from '../../redux/workout/workout.selectors';
 
 import './exercises-preview.styles.scss';
 
 import ExerciseItem from '../exercise-item/exercise-item.component';
 import ExerciseImage from '../exercise-image/exercise-image.component';
 import NextExercise from '../next-exercise/next-exercise.component';
+import ActiveExerciseName from '../active-exercise-name/active-exercise-name.component';
 
-const ExercisesPreview = ({ exercises, isImage, nextExerciseName }) => (    
+const ExercisesPreview = ({ exercises, isImage, nextExerciseName, activeExercise }) => (    
     <div className='exercises-preview'>
         <div className='exercises-list'> 
             {
@@ -24,11 +25,14 @@ const ExercisesPreview = ({ exercises, isImage, nextExerciseName }) => (
         <div className='image-or-next'>
             { isImage ? 
                 (exercises.map((exercise) => (exercise.isActive === true ? (
-                    <ExerciseImage key={exercise.id} link={exercise.link} />
+                    <div>
+                        <ExerciseImage key={exercise.id} link={exercise.link} />
+                        <ActiveExerciseName />
+                    </div>
                  ) : '')
                 ))
             : <NextExercise visible={true} exerciseName={nextExerciseName} />
-        }
+            }
         </div>
     </div>
 );
