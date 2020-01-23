@@ -2,7 +2,7 @@ import React from 'react';
 import ReactNoSleep from 'react-no-sleep';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect'; 
-import { toggleTimer, toggleTimerColor } from '../../redux/timer/timer.actions';
+import { toggleTimer, toggleTimerColor, toggleButtonTitle } from '../../redux/timer/timer.actions';
 import { selectTimerRest, selectButtonTitle } from '../../redux/timer/timer.selectors';
 import { selectWorkoutExercises, selectStartButtonIsActive } from '../../redux/workout/workout.selectors';
 import { selectSelectedCircuit, selectCurrentCircuit } from '../../redux/circuit/circuit.selectors';
@@ -37,13 +37,14 @@ class TimerWithButton extends React.Component {
 
     handleCompleteTimer = () => {
         const { workout, numberOfCircuits, currentCircuit, resetToInitialState, incrementCurrentCircuit,
-            toggleTimerColor, toggleTimer } = this.props;
+            toggleTimerColor, toggleTimer, toggleButtonTitle } = this.props;
         if(workout[workout.length - 1].isActive !== true) {
             toggleTimerColor();
         } else if(workout[workout.length - 1].isActive === true 
                 && numberOfCircuits > 1 
                 && currentCircuit !== numberOfCircuits) {
                     resetToInitialState();
+                    toggleButtonTitle();
                     incrementCurrentCircuit();
                     toggleTimerColor();
                     toggleTimer();
@@ -51,6 +52,18 @@ class TimerWithButton extends React.Component {
             this.props.handleCompleteTimer();
         }
     };
+
+    handleStart = () => {
+        const { toggleStart, currentCircuit, workout, toggleButtonTitle, previewNextExercise, toggleTimer } = this.props;
+        if(currentCircuit === 1 && workout.find(ex => ex.isActive === true) === undefined) {
+            toggleStart();
+            toggleButtonTitle();
+            previewNextExercise(workout);
+        } else {
+            toggleTimer();
+            toggleButtonTitle();
+        }
+    }
 
     render() {
         const { toggleTimer, buttonTitle, startButtonIsActive } = this.props;
@@ -64,7 +77,7 @@ class TimerWithButton extends React.Component {
                         />
                         <CustomButton 
                             onClick={() => {
-                                toggleTimer();
+                                this.handleStart();
                                 isOn=enable();
                                 }} 
                             isActive={startButtonIsActive}
@@ -95,6 +108,7 @@ const mapDispatchToProps = dispatch => ({
     toggleStop: () => dispatch(toggleStop()),
     incrementCurrentCircuit: () => dispatch(incrementCurrentCircuit()),
     resetToInitialState: () => dispatch(resetToInitialState()),
+    toggleButtonTitle: () => dispatch(toggleButtonTitle())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TimerWithButton);

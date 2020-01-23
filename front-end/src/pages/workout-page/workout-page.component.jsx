@@ -7,10 +7,11 @@ import { fetchRandomWorkoutStartAsync, resetToInitialState } from  '../../redux/
 import { selectIsWorkoutFetching } from '../../redux/workout/workout.selectors';
 import { selectAudioStartStatus, selectAudioStopStatus } from '../../redux/audio/audio.selectors';
 import { selectSelectedDuration, selectDurationOptions } from '../../redux/duration/duration.selectors';
-import { selectSelectedCircuit } from '../../redux/circuit/circuit.selectors';
+import { selectSelectedCircuit, selectCurrentCircuit } from '../../redux/circuit/circuit.selectors';
 import { findPressedDuration } from '../../redux/duration/duration.actions';
 import { selectSelectedMuscleGroup } from  '../../redux/muscle-group/muscle-group.selectors';
 import { toggleStart, toggleStop } from '../../redux/audio/audio.actions';
+import { toggleTimer } from '../../redux/timer/timer.actions';
 import ExercisesPreview from '../../components/exercises-preview/exercises-preview.component';
 import PlaySound from '../../components/audio/audio.component';
 import CircuitsAndTimer from '../../components/circuits-and-timer/circuits-and-timer.component';
@@ -39,8 +40,19 @@ class WorkoutPage extends React.Component {
         });
     }
 
+    handleWorkoutStart = () => {
+        console.log('HERE')
+        const { currentCircuit, workout, toggleTimer, toggleStart } = this.props;
+        if(currentCircuit === 1 && workout.find(ex => ex.isActive === true) === undefined) {
+            toggleTimer();
+            toggleStart();
+        } else {
+            toggleStart();
+        }
+    }
+
     render() {
-        const { audioStatusStop, audioStatusStart, toggleStart, toggleStop, numberOfCircuits, isWorkoutFetching } = this.props;
+        const { audioStatusStop, audioStatusStart, toggleStart, toggleStop, isWorkoutFetching } = this.props;
         return(
             <div className='workout-page'>
                 <CircuitsAndTimer handleCompleteTimer={this.handleCompleteTimer} />
@@ -53,7 +65,7 @@ class WorkoutPage extends React.Component {
                 <PlaySound 
                         audioFile={soundfileStart}
                         status={audioStatusStart} 
-                        onFinishedPlaying={()=> toggleStart()}
+                        onFinishedPlaying={()=> this.handleWorkoutStart()}
                 />
             </div>
         )
@@ -68,7 +80,8 @@ const mapStateToProps = createStructuredSelector({
     selectedDuration: selectSelectedDuration, 
     selectedMuscleGroup: selectSelectedMuscleGroup,
     numberOfCircuits: selectSelectedCircuit,
-    isWorkoutFetching: selectIsWorkoutFetching
+    isWorkoutFetching: selectIsWorkoutFetching,
+    currentCircuit: selectCurrentCircuit
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -76,6 +89,7 @@ const mapDispatchToProps = dispatch => ({
   toggleStart: () => dispatch(toggleStart()),
   toggleStop: () => dispatch(toggleStop()),
   findPressedDuration: options => dispatch(findPressedDuration(options)),
+  toggleTimer: () => dispatch(toggleTimer()),
   resetToInitialState: () => dispatch(resetToInitialState())  
 });
 

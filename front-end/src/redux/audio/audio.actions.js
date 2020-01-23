@@ -5,5 +5,5 @@ export const toggleStop = () => ({
 });
 
 export const toggleStart = () => ({
-    type: AudioActionTypes.TOOGLE_START
+    type: AudioActionTypes.TOGGLE_START
 });

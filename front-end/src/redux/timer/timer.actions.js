@@ -7,3 +7,7 @@ export const toggleTimer = () => ({
 export const toggleTimerColor = () => ({
     type: TimerActionTypes.TOGGLE_TIMER_COLOR
 });
+
+export const toggleButtonTitle = () => ({
+    type: TimerActionTypes.TOGGLE_BUTTON_TITLE
+});

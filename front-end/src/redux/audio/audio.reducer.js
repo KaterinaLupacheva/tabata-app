@@ -12,7 +12,7 @@ const audioReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 audioStatusStop: state.audioStatusStop === 'STOPPED' ? 'PLAYING' : 'STOPPED'
             };
-        case AudioActionTypes.TOOGLE_START:
+        case AudioActionTypes.TOGGLE_START:
             return {
                 ...state,
                 audioStatusStart: state.audioStatusStart === 'STOPPED' ? 'PLAYING' : 'STOPPED'
