@@ -15,6 +15,7 @@ const FinishedPage = ({ history }) => {
     return (
         <div className='finished-page'>
             <h1 className='text'>GREAT WORK!</h1>
+            <h3>Don't forget to cooldown and stretch!</h3>
             <div className='buttons'>
                 {/* <div className='save-workout'>
                     <CustomButtom onClick={() => console.log('click')}>Save Workout</CustomButtom>
