@@ -1,6 +1,6 @@
 # Tabata - Fitness App
 
-Fitness Progressive Web App (PWA) based on [Tabata](https://en.wikipedia.org/wiki/High-intensity_interval_training#Tabata_regimen) - a version of High Intensity Interval Training (HIIT).
+Fitness Progressive Web App ([PWA](https://ramonak.io/posts/what-is-progressive-web-app)) based on [Tabata](https://en.wikipedia.org/wiki/High-intensity_interval_training#Tabata_regimen) - a version of High Intensity Interval Training (HIIT).
 
 ## Features
 
