@@ -9,7 +9,7 @@ import logo from '../../assets/logo.png';
 import './header.styles.scss';
 
 const Header = () => {
-  const isInWebAppiOS = (window.navigator.standalone == true);
+  const isInWebAppiOS = (window.navigator.standalone === true);
   const isInWebAppChrome = (window.matchMedia('(display-mode: standalone)').matches);
   let href = 'https://ramonak.io/';
   if (isInWebAppiOS || isInWebAppChrome) {
