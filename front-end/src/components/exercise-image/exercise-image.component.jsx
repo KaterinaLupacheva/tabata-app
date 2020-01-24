@@ -2,9 +2,9 @@ import React from 'react';
 
 import './exercise-image.styles.scss';
 
-const ExerciseImage = ({id, link} ) => (
+const ExerciseImage = ({ link }) => (
     <div className='exercise-image'>
-        <img src={`${link}`} alt='image' />
+        <img src={`${link}`} alt='execise' />
     </div>
 )
 
