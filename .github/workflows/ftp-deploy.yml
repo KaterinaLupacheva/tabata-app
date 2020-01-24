@@ -29,5 +29,6 @@ jobs:
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         METHOD: sftp
         PORT: 21098
+        LOCAL_DIR: front-end/build  
         REMOTE_DIR: public_html/tabata
         ARGS: --delete --exclude=.well-known --exclude=cgi-bin
