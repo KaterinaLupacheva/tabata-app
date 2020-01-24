@@ -51,7 +51,7 @@ class WorkoutPage extends React.Component {
     }
 
     render() {
-        const { audioStatusStop, audioStatusStart, toggleStart, toggleStop, isWorkoutFetching } = this.props;
+        const { audioStatusStop, audioStatusStart, toggleStop, isWorkoutFetching } = this.props;
         return(
             <div className='workout-page'>
                 <CircuitsAndTimer handleCompleteTimer={this.handleCompleteTimer} />
