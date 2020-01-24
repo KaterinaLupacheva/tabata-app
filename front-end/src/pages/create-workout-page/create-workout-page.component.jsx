@@ -12,7 +12,6 @@ import './create-workout-page.styles.scss';
 import ExercisesList from '../../components/exercises-list/exercises-list.component';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 import ButtonGroup from '../../components/button-group/button-group.component';
-import ArrowButton from '../../components/arrow-button/arrow-button.component';
 import NextButton from '../../components/next-button/next-button.component';
 
 const ExercisesListWithSpinner = WithSpinner(ExercisesList);
