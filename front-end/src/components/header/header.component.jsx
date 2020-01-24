@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 
 import logo from '../../assets/logo.png';
 
-import { auth } from '../../firebase/firebase.utils';
+// import { auth } from '../../firebase/firebase.utils';
 
 import './header.styles.scss';
 
-const Header = ({ currentUser }) => {
+const Header = () => {
   const isInWebAppiOS = (window.navigator.standalone == true);
   const isInWebAppChrome = (window.matchMedia('(display-mode: standalone)').matches);
   let href = 'https://ramonak.io/';
