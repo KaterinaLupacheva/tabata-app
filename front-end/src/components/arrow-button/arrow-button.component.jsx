@@ -7,7 +7,7 @@ import './arrow-button.styles.scss';
 const ArrowButton = ({ path }) => (
     <div className='button-container'>
         <Link to={path}>
-            <img src={arrow} />
+            <img src={arrow} alt='arrow-button'/>
         </Link>
     </div>
 )
