@@ -12,7 +12,7 @@ import ParametersPage from './pages/parameters-page/parameters-page.component';
 import FinishedPage from './pages/finished-page/finished-page.component';
 import CircuitsPage from './pages/circuits-page/circuits-page.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+// import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import Header from './components/header/header.component';
 
 class App extends React.Component {
