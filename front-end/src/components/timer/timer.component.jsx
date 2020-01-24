@@ -8,7 +8,7 @@ import './timer.styles.scss';
 
 import TimerMachine from 'react-timer-machine';
 import moment from "moment";
-import momentDurationFormatSetup from "moment-duration-format";
+// import momentDurationFormatSetup from "moment-duration-format";
 
 const Timer = ({ handleCompleteTimer, handleTick, timerColor, exerciseTime, paused, started, setActiveExercise }) => {
     return (
