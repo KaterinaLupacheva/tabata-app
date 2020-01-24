@@ -68,7 +68,7 @@ class TimerWithButton extends React.Component {
     }
 
     render() {
-        const { toggleTimer, buttonTitle, startButtonIsActive } = this.props;
+        const { buttonTitle, startButtonIsActive } = this.props;
         return (
              <ReactNoSleep>
                 {({ isOn, enable, disable }) => (
