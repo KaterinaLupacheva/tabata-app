@@ -18,3 +18,5 @@ webpack.generated.js
 
 scripts.txt
 application-dev.properties
+
+src/main/java/io/ramonak/database/DBInit.java
