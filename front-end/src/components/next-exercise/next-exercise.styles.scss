@@ -2,16 +2,16 @@
     visibility: hidden;
     display: flex;
     flex-direction: column;
-    padding-top: 10%;
+    // padding-top: 10%;
 
     &.visible {
         visibility: visible;
         text-align: center;
-        font-size: 48px;
+        font-size: 24px;
         color: white;
     }
 
     .name {
-        margin: 30px;
+        margin: 10px;
     }
 }
