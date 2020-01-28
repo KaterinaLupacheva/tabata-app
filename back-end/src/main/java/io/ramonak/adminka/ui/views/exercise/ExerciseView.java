@@ -3,9 +3,12 @@ package io.ramonak.adminka.ui.views.exercise;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.checkbox.Checkbox;
+import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.Route;
 import io.ramonak.adminka.ui.utils.AppConst;
 import io.ramonak.adminka.ui.views.MainView;
@@ -27,7 +30,17 @@ class ExerciseView extends VerticalLayout {
         this.form = new ExerciseForm(exerciseService, muscleGroupService);
 
         grid = new Grid<>(ExerciseDTO.class);
-        grid.setColumns("number", "name", "muscleGroupName", "isWithWeights", "link");
+        grid.setColumns("number", "name", "muscleGroupName", "link");
+        grid.addColumn(new ComponentRenderer<>(ex -> {
+            Checkbox checkbox = new Checkbox();
+            if(ex.getIsWithWeights()==null) {
+                checkbox.setValue(false);
+                return checkbox;
+            } else {
+                checkbox.setValue(ex.getIsWithWeights());
+                return checkbox;
+            }
+        })).setHeader("Weights");
         updateList();
         grid.asSingleSelect().addValueChangeListener(e -> form.setBean(e.getValue()));
         HorizontalLayout mainContent = new HorizontalLayout(grid, form);

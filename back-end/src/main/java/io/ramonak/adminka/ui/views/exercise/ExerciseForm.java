@@ -1,6 +1,7 @@
 package io.ramonak.adminka.ui.views.exercise;
 
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
@@ -21,7 +22,7 @@ public class ExerciseForm extends FormLayout {
 
     private final TextField name;
     private final ComboBox<String> muscleGroupName;
-    private final ComboBox<Integer> difficulty;
+    private final Checkbox isWithWeights;
     private final TextField link;
     private Binder<ExerciseDTO> binder;
     private final ExerciseService exerciseService;
@@ -41,8 +42,7 @@ public class ExerciseForm extends FormLayout {
         muscleGroupName.setItems(muscleGroupService.getAllMuscleGroups().stream()
                                 .map(MuscleGroupDTO::getName)
                                 .collect(Collectors.toList()));
-        difficulty = new ComboBox<>("Difficulty");
-        difficulty.setItems(Arrays.asList(1, 2, 3));
+        isWithWeights = new Checkbox("Weights");
         link = new TextField("Video / image");
         save = new Button("Save");
         delete = new Button("Delete");
@@ -51,7 +51,7 @@ public class ExerciseForm extends FormLayout {
         buttons.setSizeFull();
         buttons.getStyle().set("margin-top", "30px");
         buttons.setJustifyContentMode(FlexComponent.JustifyContentMode.CENTER);
-        add(name, muscleGroupName, difficulty, link, buttons);
+        add(name, muscleGroupName, isWithWeights, link, buttons);
         setupBinder();
     }
 
