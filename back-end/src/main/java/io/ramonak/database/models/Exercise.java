@@ -25,7 +25,7 @@ public class Exercise {
     private MuscleGroup muscleGroup;
 
     @Column
-    private boolean isWithWeights;
+    private Boolean isWithWeights;
 
     @Column
     private String link;
