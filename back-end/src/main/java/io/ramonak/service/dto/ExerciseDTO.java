@@ -14,7 +14,7 @@ public class ExerciseDTO implements Serializable {
     private Long id;
     private String name;
     private String muscleGroupName;
-    private Integer difficulty;
+    private boolean isWithWeights;
     private String link;
     private Integer number;
 }
