@@ -27,7 +27,7 @@ class ExerciseView extends VerticalLayout {
         this.form = new ExerciseForm(exerciseService, muscleGroupService);
 
         grid = new Grid<>(ExerciseDTO.class);
-        grid.setColumns("number", "name", "muscleGroupName", "difficulty", "link");
+        grid.setColumns("number", "name", "muscleGroupName", "isWithWeights", "link");
         updateList();
         grid.asSingleSelect().addValueChangeListener(e -> form.setBean(e.getValue()));
         HorizontalLayout mainContent = new HorizontalLayout(grid, form);
