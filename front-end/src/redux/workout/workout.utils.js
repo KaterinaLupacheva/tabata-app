@@ -39,6 +39,15 @@ export const getNextExerciseName = exercises => {
     return exercises[0].name;
 };
 
+export const getNextExerciseLink = exercises => {
+    const nextExercise = exercises.find((el, i, array) => el.isActive === true && i < array.length - 1);
+    if(nextExercise) {
+        const index = exercises.indexOf(nextExercise);
+        return exercises[index + 1].link;
+    }
+    return exercises[0].link;
+}
+
 export const resetToInitialState = exercises => {
     return exercises.map(el => {
         if(el.isActive === true) {

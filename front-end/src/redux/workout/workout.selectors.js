@@ -31,3 +31,8 @@ export const selectActiveExercise = createSelector(
     [selectWorkoutExercises],
     exercises => exercises.find(ex => ex.isActive === true)
 );
+
+export const selectNextExerciseLink = createSelector(
+    [selectWorkout],
+    workout => workout.nextExerciseLink
+);

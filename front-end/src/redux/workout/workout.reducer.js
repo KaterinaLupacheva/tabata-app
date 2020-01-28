@@ -1,5 +1,6 @@
 import WorkoutActionTypes from './workout.types';
-import { toggleExerciseInWorkout, setActiveExercise, getNextExerciseName, resetToInitialState } from './workout.utils';
+import { toggleExerciseInWorkout, setActiveExercise, 
+    getNextExerciseName, resetToInitialState, getNextExerciseLink } from './workout.utils';
 
 const INITIAL_STATE = {
     workoutExercises: [],
@@ -7,7 +8,8 @@ const INITIAL_STATE = {
     errorMessage: undefined,
     nextExerciseName: '',
     isImage: true,
-    startButtonIsActive: false
+    startButtonIsActive: false,
+    nextExerciseLink: ''
 };
 
 const workoutReducer = (state = INITIAL_STATE, action) => {
@@ -47,12 +49,14 @@ const workoutReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 workoutExercises: resetToInitialState(state.workoutExercises),
                 nextExerciseName: '',
+                nextExerciseLink: '',
                 isImage: true
             };
         case WorkoutActionTypes.PREVIEW_NEXT_EXERCISE:
             return {
                 ...state,
                 nextExerciseName: getNextExerciseName(action.payload),
+                nextExerciseLink: getNextExerciseLink(action.payload),
                 isImage: false
             };
         case 'RESET':
