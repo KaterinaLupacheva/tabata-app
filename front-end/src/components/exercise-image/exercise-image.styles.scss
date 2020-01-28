@@ -1,5 +1,8 @@
 .exercise-image {
     padding-top: 5vh;
+    height: 100%;
+    display: flex;
+    justify-content: center;
 
     img {
         max-width: 100%;

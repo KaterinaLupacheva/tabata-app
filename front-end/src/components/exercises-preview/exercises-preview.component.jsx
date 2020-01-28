@@ -9,6 +9,7 @@ import ExerciseItem from '../exercise-item/exercise-item.component';
 import ExerciseImage from '../exercise-image/exercise-image.component';
 import NextExercise from '../next-exercise/next-exercise.component';
 import ActiveExerciseName from '../active-exercise-name/active-exercise-name.component';
+import ExerciseVideo from '../exercise-video/exercise-video.component';
 
 const ExercisesPreview = ({ exercises, isImage, nextExerciseName }) => (    
     <div className='exercises-preview'>
@@ -22,14 +23,15 @@ const ExercisesPreview = ({ exercises, isImage, nextExerciseName }) => (
                     />
             ))}
         </div>
-        <div className='image-or-next'>
+        <div className='image-or-next-container'>
             { isImage ? 
                 (exercises.map((exercise) => (exercise.isActive === true ? (
-                    <div>
+                    <div className='image-or-next'>
                         <ExerciseImage key={exercise.id} link={exercise.link} />
+                        {/* <ExerciseVideo key={exercise.id} link={exercise.link} /> */}
                         <ActiveExerciseName />
                     </div>
-                 ) : '')
+                    ) : '')
                 ))
             : <NextExercise visible={true} exerciseName={nextExerciseName} />
             }

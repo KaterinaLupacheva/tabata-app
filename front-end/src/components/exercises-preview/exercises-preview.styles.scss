@@ -16,7 +16,7 @@
         }
     }
 
-    .image-or-next {
+    .image-or-next-container {
         width: 55vw;
         height: 100%;
         display: flex;
@@ -25,6 +25,11 @@
         @include breakpoint {
             width: 100%;
             flex-direction: column;
+        }
+
+        .image-or-next {
+            width: 100%;
+            height: 100%;
         }
     }
 
