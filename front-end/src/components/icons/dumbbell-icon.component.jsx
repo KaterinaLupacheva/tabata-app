@@ -4,7 +4,7 @@ import { FaDumbbell } from "react-icons/fa";
 import './dumbbell-icon.styles.scss';
 
 const DumbbellIcon = () => (
-    <IconContext.Provider value={{ className: "dumbbell-icon" }}>
+    <IconContext.Provider value={{ size: '20px', className: "dumbbell-icon" }}>
         <FaDumbbell />
     </IconContext.Provider>
 );
