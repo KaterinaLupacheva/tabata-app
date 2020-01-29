@@ -96,9 +96,17 @@ public class ExerciseServiceImpl implements ExerciseService {
     private List<Long> getAllIds(String muscleGroup, Boolean isWithWeights) {
         List<Long> allIds;
         if (muscleGroup.toLowerCase().equals("whole body")) {
-            allIds = exerciseRepository.getAllIds(isWithWeights);
+            if(!isWithWeights) {
+                allIds = exerciseRepository.getAllIdsWithNoWeights();
+            } else {
+                allIds = exerciseRepository.getAllIds();
+            }
         } else {
-            allIds = exerciseRepository.getAllIdsForMuscleGroup(muscleGroup.toLowerCase());
+            if(!isWithWeights) {
+                allIds = exerciseRepository.getAllIdsForMuscleGroupWithNoWeights(muscleGroup.toLowerCase());
+            } else {
+                allIds = exerciseRepository.getAllIdsForMuscleGroup(muscleGroup.toLowerCase());
+            }
         }
         return allIds;
     }
