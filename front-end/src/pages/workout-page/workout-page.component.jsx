@@ -28,7 +28,7 @@ class WorkoutPage extends React.Component {
         selectedDuration, selectedMuscleGroup } = this.props;
         resetToInitialState();
         if (workout.length === 0 && selectedDuration.length !==0 && selectedMuscleGroup !== 0) {
-            fetchRandomWorkoutStartAsync(this.props.selectedDuration * 2, this.props.selectedMuscleGroup);
+            fetchRandomWorkoutStartAsync(selectedDuration * 2, selectedMuscleGroup);
         } else if (workout.length === 0) {
             this.props.history.push('/create-workout');
         }
