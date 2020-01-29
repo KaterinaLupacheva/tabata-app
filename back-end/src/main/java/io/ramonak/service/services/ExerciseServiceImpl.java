@@ -51,6 +51,14 @@ public class ExerciseServiceImpl implements ExerciseService {
         // Get all ids
         List<Long> allIds = getAllIds(muscleGroup, isWithWeights);
 
+        //if cardio
+        if(muscleGroup.toLowerCase().equals("cardio")) {
+            List<Long> randomIds = getRandomIds(numOfExercises, allIds);
+            List<ExerciseDTO> randomExercises = getExercisesByRandomIds(randomIds);
+            Collections.shuffle(randomExercises);
+            return randomExercises;
+        }
+
         // create random array of 80% of random ids
         int eightyPercent = (int) Math.round(numOfExercises * 0.8);
         List<Long> randomIds = getRandomIds(eightyPercent, allIds);
