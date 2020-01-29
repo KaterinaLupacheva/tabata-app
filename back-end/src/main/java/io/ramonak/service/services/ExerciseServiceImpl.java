@@ -47,9 +47,9 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     @Override
-    public List<ExerciseDTO> getRandomExercises(Integer numOfExercises, String muscleGroup) {
+    public List<ExerciseDTO> getRandomExercises(Integer numOfExercises, String muscleGroup, Boolean isWithWeights) {
         // Get all ids
-        List<Long> allIds = getAllIds(muscleGroup);
+        List<Long> allIds = getAllIds(muscleGroup, isWithWeights);
 
         // create random array of 80% of random ids
         int eightyPercent = (int) Math.round(numOfExercises * 0.8);
@@ -93,10 +93,10 @@ public class ExerciseServiceImpl implements ExerciseService {
         return randomIds;
     }
 
-    private List<Long> getAllIds(String muscleGroup) {
+    private List<Long> getAllIds(String muscleGroup, Boolean isWithWeights) {
         List<Long> allIds;
         if (muscleGroup.toLowerCase().equals("whole body")) {
-            allIds = exerciseRepository.getAllIds();
+            allIds = exerciseRepository.getAllIds(isWithWeights);
         } else {
             allIds = exerciseRepository.getAllIdsForMuscleGroup(muscleGroup.toLowerCase());
         }
@@ -118,7 +118,7 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     private List<ExerciseDTO> getRandomCardioExercises(Integer numOfExercises) {
-        List<Long> ids = getAllIds("cardio");
+        List<Long> ids = getAllIds("cardio", false);
         List<Long> randomIds = getRandomIds(numOfExercises, ids);
         List<ExerciseDTO> exercisesByRandomIds = getExercisesByRandomIds(randomIds);
         return exercisesByRandomIds;

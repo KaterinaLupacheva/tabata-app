@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface ExerciseRepository extends CrudRepository<Exercise, Long> {
 
-    @Query("select e.id from Exercise e")
-    List<Long> getAllIds();
+    @Query("select e.id from Exercise e where e.isWithWeights = :isWithWeights")
+    List<Long> getAllIds(@Param("isWithWeights") Boolean isWithWeights);
 
     @Query("select e.id from Exercise e " +
             "join e.muscleGroup muscleGroups" +
