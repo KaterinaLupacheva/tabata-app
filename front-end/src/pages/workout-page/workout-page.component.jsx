@@ -8,6 +8,7 @@ import { selectIsWorkoutFetching } from '../../redux/workout/workout.selectors';
 import { selectAudioStartStatus, selectAudioStopStatus } from '../../redux/audio/audio.selectors';
 import { selectSelectedDuration, selectDurationOptions } from '../../redux/duration/duration.selectors';
 import { selectSelectedCircuit, selectCurrentCircuit } from '../../redux/circuit/circuit.selectors';
+import { resetCurrentCircuit } from '../../redux/circuit/circuit.actions';
 import { findPressedDuration } from '../../redux/duration/duration.actions';
 import { selectSelectedMuscleGroup } from  '../../redux/muscle-group/muscle-group.selectors';
 import { toggleStart, toggleStop } from '../../redux/audio/audio.actions';
@@ -31,8 +32,9 @@ class WorkoutPage extends React.Component {
 
     componentDidMount() {
         const { workout, fetchRandomWorkoutStartAsync, resetToInitialState, 
-        selectedDuration, selectedMuscleGroup } = this.props;
+        selectedDuration, selectedMuscleGroup, resetCurrentCircuit } = this.props;
         resetToInitialState();
+        resetCurrentCircuit();
         if (workout.length === 0 && selectedDuration.length !==0 && selectedMuscleGroup !== 0) {
             fetchRandomWorkoutStartAsync(selectedDuration * 2, selectedMuscleGroup, this.state.checked);
         } else if (workout.length === 0) {
@@ -95,7 +97,8 @@ const mapDispatchToProps = dispatch => ({
   toggleStop: () => dispatch(toggleStop()),
   findPressedDuration: options => dispatch(findPressedDuration(options)),
   toggleTimer: () => dispatch(toggleTimer()),
-  resetToInitialState: () => dispatch(resetToInitialState())  
+  resetToInitialState: () => dispatch(resetToInitialState()),
+  resetCurrentCircuit: () => dispatch(resetCurrentCircuit())  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WorkoutPage);
