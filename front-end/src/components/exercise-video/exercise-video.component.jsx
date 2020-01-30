@@ -24,7 +24,7 @@ const ExerciseVideo = ({ link, height }) => {
             muted 
             autoPlay 
             loop
-            playsinline
+            playsinline="true"
             ref={vidRef} 
         >
             <source src={`${link}`} type="video/mp4" />
