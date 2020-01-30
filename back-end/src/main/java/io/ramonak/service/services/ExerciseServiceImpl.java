@@ -47,9 +47,17 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     @Override
-    public List<ExerciseDTO> getRandomExercises(Integer numOfExercises, String muscleGroup) {
+    public List<ExerciseDTO> getRandomExercises(Integer numOfExercises, String muscleGroup, Boolean isWithWeights) {
         // Get all ids
-        List<Long> allIds = getAllIds(muscleGroup);
+        List<Long> allIds = getAllIds(muscleGroup, isWithWeights);
+
+        //if cardio
+        if(muscleGroup.toLowerCase().equals("cardio")) {
+            List<Long> randomIds = getRandomIds(numOfExercises, allIds);
+            List<ExerciseDTO> randomExercises = getExercisesByRandomIds(randomIds);
+            Collections.shuffle(randomExercises);
+            return randomExercises;
+        }
 
         // create random array of 80% of random ids
         int eightyPercent = (int) Math.round(numOfExercises * 0.8);
@@ -60,7 +68,7 @@ public class ExerciseServiceImpl implements ExerciseService {
 
         // add 20% of random cardio exercises
         List<ExerciseDTO> randomCardioExercises =
-                getRandomCardioExercises(numOfExercises - eightyPercent);
+                getRandomCardioExercises(numOfExercises - eightyPercent, randomIds);
 
         // combine two arrays
         List<ExerciseDTO> result = Stream.concat(randomExercises.stream(), randomCardioExercises.stream())
@@ -93,12 +101,20 @@ public class ExerciseServiceImpl implements ExerciseService {
         return randomIds;
     }
 
-    private List<Long> getAllIds(String muscleGroup) {
+    private List<Long> getAllIds(String muscleGroup, Boolean isWithWeights) {
         List<Long> allIds;
         if (muscleGroup.toLowerCase().equals("whole body")) {
-            allIds = exerciseRepository.getAllIds();
+            if(!isWithWeights) {
+                allIds = exerciseRepository.getAllIdsWithNoWeights();
+            } else {
+                allIds = exerciseRepository.getAllIds();
+            }
         } else {
-            allIds = exerciseRepository.getAllIdsForMuscleGroup(muscleGroup.toLowerCase());
+            if(!isWithWeights) {
+                allIds = exerciseRepository.getAllIdsForMuscleGroupWithNoWeights(muscleGroup.toLowerCase());
+            } else {
+                allIds = exerciseRepository.getAllIdsForMuscleGroup(muscleGroup.toLowerCase());
+            }
         }
         return allIds;
     }
@@ -117,11 +133,24 @@ public class ExerciseServiceImpl implements ExerciseService {
         }
     }
 
-    private List<ExerciseDTO> getRandomCardioExercises(Integer numOfExercises) {
-        List<Long> ids = getAllIds("cardio");
-        List<Long> randomIds = getRandomIds(numOfExercises, ids);
+    private List<ExerciseDTO> getRandomCardioExercises(Integer numOfExercises, List<Long> randomIdsBeforeCardio) {
+        List<Long> cardioIds = getAllIds("cardio", false);
+        //remove duplicated ids in 80% of exercises and all cardio exercises
+        List<Long> randomIds = getRandomIds(numOfExercises, removeDuplicates(randomIdsBeforeCardio, cardioIds));
         List<ExerciseDTO> exercisesByRandomIds = getExercisesByRandomIds(randomIds);
         return exercisesByRandomIds;
+    }
+
+    private List<Long> removeDuplicates(List<Long> allIds, List<Long> cardioIds) {
+        List<Long> result = cardioIds;
+        for(int i = 0; i < allIds.size(); i++) {
+            for (int j = 0; j < cardioIds.size(); j++) {
+                if (allIds.get(i) == cardioIds.get(j)) {
+                    result.remove(j);
+                }
+            }
+        }
+        return result;
     }
 
     private Exercise convertToEntity(ExerciseDTO exerciseDTO) {

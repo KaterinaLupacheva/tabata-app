@@ -28,8 +28,10 @@ public class ExerciseController {
     @GetMapping("/random/{numOfExercises}/{muscleGroup}")
     public ResponseEntity<List<ExerciseDTO>> getRandomExercises(
             @PathVariable("numOfExercises") Integer numOfExercises,
-            @PathVariable("muscleGroup") String muscleGroup) {
-        return new ResponseEntity<>(exerciseService.getRandomExercises(numOfExercises, muscleGroup), HttpStatus.OK);
+            @PathVariable("muscleGroup") String muscleGroup,
+            @RequestParam(defaultValue = "false") Boolean isWithWeights) {
+        return new ResponseEntity<>(exerciseService.getRandomExercises(numOfExercises, muscleGroup, isWithWeights),
+                HttpStatus.OK);
     }
 
     @GetMapping("/{muscleGroup}")
