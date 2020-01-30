@@ -3,7 +3,8 @@
 .option-button{
     display: flex;
     align-items: center;
-    width: 30%;
+    justify-content: center;
+    width: 30vw;
     height: 10vh;
     margin: 1vw;
     border: 1.5px solid var(--ramonak-color);
@@ -21,8 +22,10 @@
     }
 
     .option{
-        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5vw;
         width: 50%;
-        margin: 0 auto;
     }
 }
