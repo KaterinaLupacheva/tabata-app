@@ -15,6 +15,7 @@ import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up
 // import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import Header from './components/header/header.component';
 import WithWeightsCheckboxContext from './contexts/with-weights-checkbox.context';
+import { VideoContextProvider } from './contexts/video.context';
 
 class App extends React.Component {
   constructor(props) {
@@ -80,7 +81,9 @@ class App extends React.Component {
                 <SignInAndSignUpPage />)} 
           />
           <WithWeightsCheckboxContext.Provider value={this.state}>
-            <Route path='/workout' component={WorkoutPage} />
+            <VideoContextProvider>
+              <Route path='/workout' component={WorkoutPage} />
+            </VideoContextProvider>
             <Route exact path='/parameters' component={ParametersPage} />
           </WithWeightsCheckboxContext.Provider>
         </Switch>
