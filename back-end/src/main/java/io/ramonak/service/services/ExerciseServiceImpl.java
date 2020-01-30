@@ -68,7 +68,7 @@ public class ExerciseServiceImpl implements ExerciseService {
 
         // add 20% of random cardio exercises
         List<ExerciseDTO> randomCardioExercises =
-                getRandomCardioExercises(numOfExercises - eightyPercent);
+                getRandomCardioExercises(numOfExercises - eightyPercent, randomIds);
 
         // combine two arrays
         List<ExerciseDTO> result = Stream.concat(randomExercises.stream(), randomCardioExercises.stream())
@@ -133,11 +133,24 @@ public class ExerciseServiceImpl implements ExerciseService {
         }
     }
 
-    private List<ExerciseDTO> getRandomCardioExercises(Integer numOfExercises) {
-        List<Long> ids = getAllIds("cardio", false);
-        List<Long> randomIds = getRandomIds(numOfExercises, ids);
+    private List<ExerciseDTO> getRandomCardioExercises(Integer numOfExercises, List<Long> randomIdsBeforeCardio) {
+        List<Long> cardioIds = getAllIds("cardio", false);
+        //remove duplicated ids in 80% of exercises and all cardio exercises
+        List<Long> randomIds = getRandomIds(numOfExercises, removeDuplicates(randomIdsBeforeCardio, cardioIds));
         List<ExerciseDTO> exercisesByRandomIds = getExercisesByRandomIds(randomIds);
         return exercisesByRandomIds;
+    }
+
+    private List<Long> removeDuplicates(List<Long> allIds, List<Long> cardioIds) {
+        List<Long> result = cardioIds;
+        for(int i = 0; i < allIds.size(); i++) {
+            for (int j = 0; j < cardioIds.size(); j++) {
+                if (allIds.get(i) == cardioIds.get(j)) {
+                    result.remove(j);
+                }
+            }
+        }
+        return result;
     }
 
     private Exercise convertToEntity(ExerciseDTO exerciseDTO) {
