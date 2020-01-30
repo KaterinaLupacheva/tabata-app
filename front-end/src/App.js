@@ -67,10 +67,6 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={StartPage} />
           <Route exact path='/about' component={LandingPage} />
-          <WithWeightsCheckboxContext.Provider value={this.state}>
-            <Route path='/workout' component={WorkoutPage} />
-            <Route exact path='/parameters' component={ParametersPage} />
-          </WithWeightsCheckboxContext.Provider>
           <Route exact path='/create-workout' component={CreateWorkoutPage} />
           <Route exact path='/circuits' component={CircuitsPage} />
           <Route exact path='/finished' component={FinishedPage} />
@@ -83,6 +79,10 @@ class App extends React.Component {
               ) : (
                 <SignInAndSignUpPage />)} 
           />
+          <WithWeightsCheckboxContext.Provider value={this.state}>
+            <Route path='/workout' component={WorkoutPage} />
+            <Route exact path='/parameters' component={ParametersPage} />
+          </WithWeightsCheckboxContext.Provider>
         </Switch>
       </div>
     );
