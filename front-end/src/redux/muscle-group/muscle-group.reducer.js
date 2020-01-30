@@ -1,5 +1,6 @@
 import MuscleGroupActionTypes from './muscle-group.types';
 import { createArray, changePressed, findPressedOption, setPressed } from '../param.utils';
+import { RESET_STATE } from '../reset.type';
 
 const INITIAL_STATE = {
     muscleGroupOptions: [],
@@ -24,6 +25,8 @@ const muscleGroupReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 selectedMuscleGroup: findPressedOption(action.payload)
             };
+        case RESET_STATE.type:
+            return INITIAL_STATE;
         default:
             return state;
     }

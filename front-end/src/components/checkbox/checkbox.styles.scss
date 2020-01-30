@@ -1,0 +1,17 @@
+input[type="checkbox"] {
+    display: none;
+  }
+  input[type="checkbox"] + span {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background: white left top no-repeat;
+    border: 1px solid var(--ramonak-color);
+    cursor: pointer;
+  }
+  input[type="checkbox"]:checked + span {
+    background: var(--ramonak-color) -19px top no-repeat;
+  }
+  

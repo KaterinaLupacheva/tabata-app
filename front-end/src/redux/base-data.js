@@ -12,8 +12,8 @@ export const CIRCUITS_NUMBER = [
 
 export const MUSCLE_GROUPS = [
     'Whole body',
-    'Abs',
-    'Arms',
-    'Legs',
+    'Core',
+    'Upper Body',
+    'Lower Body',
     'Cardio'
 ]
