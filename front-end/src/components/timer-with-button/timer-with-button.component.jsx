@@ -11,6 +11,7 @@ import { previewNextExercise } from '../../redux/workout/workout.actions';
 import { toggleStart, toggleStop, togglePausePlayStart, togglePausePlayStop } from '../../redux/audio/audio.actions';
 import { incrementCurrentCircuit } from '../../redux/circuit/circuit.actions';
 import { resetToInitialState } from  '../../redux/workout/workout.actions';
+import { VideoContextConsumer } from '../../contexts/video.context';
 
 import './timer-with-button.styles.scss';
 
@@ -56,10 +57,11 @@ class TimerWithButton extends React.Component {
         }
     };
 
-    handleStart = () => {
+    handleStart = (context) => {
         const { toggleStart, currentCircuit, workout, toggleButtonTitle, 
             previewNextExercise, toggleTimer, audioStartStatus, audioStopStatus, 
-            togglePausePlayStart, togglePausePlayStop } = this.props;
+            togglePausePlayStart, togglePausePlayStop } = this.props;  
+        context.update();          
         if(currentCircuit === 1 && workout.find(ex => ex.isActive === true) === undefined) {
             if(audioStartStatus === 'STOPPED') {
                 toggleStart();
@@ -90,15 +92,19 @@ class TimerWithButton extends React.Component {
                             handleCompleteTimer={() => this.handleCompleteTimer()} 
                             handleTick={(time) => this.handleTick(time)} 
                         />
-                        <CustomButton 
-                            onClick={() => {
-                                this.handleStart();
-                                isOn=enable();
-                                }} 
-                            isActive={startButtonIsActive}
-                        >
-                            {buttonTitle}
-                        </CustomButton>
+                        <VideoContextConsumer>
+                            {(context) => (
+                                <CustomButton 
+                                    onClick={() => {
+                                    this.handleStart(context);
+                                    isOn=enable();
+                                    }} 
+                                    isActive={startButtonIsActive}
+                                >
+                                    {buttonTitle}
+                                </CustomButton>
+                            )}
+                        </VideoContextConsumer>
                     </div>
                 )}
              </ReactNoSleep>
