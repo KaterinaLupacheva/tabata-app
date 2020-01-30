@@ -12,8 +12,24 @@ import './parameters-page.styles.scss';
 import ButtonGroup from '../../components/button-group/button-group.component';
 import NextButton from '../../components/next-button/next-button.component';
 import CheckboxWithIcon from '../../components/checkbox-with-icon/checkbox-with-icon.component';
+import WithWeightsCheckboxContext from '../../contexts/with-weights-checkbox.context';
 
 class ParametersPage extends React.Component {
+    constructor(props) {
+        super(props);
+        
+        this.toggleChecked = () => {
+            this.setState(state => ({
+                checked: !state.checked
+            }))
+        };
+
+        this.state = {
+            checked: false,
+            toggleChecked: this.toggleChecked
+        };
+    }
+
     componentDidMount() {
         const { fetchDurations, fetchCircuits, fetchMuscleGroups } = this.props;
         fetchDurations();
@@ -61,7 +77,9 @@ class ParametersPage extends React.Component {
                             findPressedMuscleGroup(muscleGroupOptions);
                         }}
                     />
-                    <CheckboxWithIcon />
+                    <WithWeightsCheckboxContext.Provider value={this.state}>
+                        <CheckboxWithIcon />
+                    </WithWeightsCheckboxContext.Provider>
                 </div>
                 <NextButton path='/workout'/>
             </div>
