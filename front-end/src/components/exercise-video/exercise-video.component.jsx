@@ -22,9 +22,9 @@ const ExerciseVideo = ({ link, height }) => {
             className='exercise-video' 
             height={height} 
             muted 
-            autoPlay 
+            // autoPlay 
             loop
-            playsinline="true"
+            playsInline
             ref={vidRef} 
         >
             <source src={`${link}`} type="video/mp4" />
