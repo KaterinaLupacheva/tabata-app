@@ -27,10 +27,10 @@ const ExercisesPreview = ({ exercises, isImage, nextExerciseName, nextExerciseLi
         <div className='image-or-next-container'>
             { isImage ? 
                 (exercises.map((exercise) => (exercise.isActive === true ? (
-                    <div key={exercise.id} className='image-or-next'>
+                    <div key={exercise.name} className='image-or-next'>
                         {exercise.link[exercise.link.length-1] === '4' ? 
                             <ExerciseVideo link={exercise.link} height={'100%'} /> :
-                            <ExerciseImage key={exercise.id} link={exercise.link} />
+                            <ExerciseImage link={exercise.link} />
                         }
                         <ActiveExerciseName />
                     </div>

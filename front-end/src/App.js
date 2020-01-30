@@ -14,8 +14,24 @@ import CircuitsPage from './pages/circuits-page/circuits-page.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 // import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import Header from './components/header/header.component';
+import WithWeightsCheckboxContext from './contexts/with-weights-checkbox.context';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.toggleChecked = () => {
+        this.setState(state => ({
+            checked: !state.checked
+        }));
+    };
+
+    this.state = {
+        checked: false,
+        toggleChecked: this.toggleChecked
+    };
+  }
+
   // unsubscribeFromAuth = null;
 
   // componentDidMount() {
@@ -51,10 +67,12 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={StartPage} />
           <Route exact path='/about' component={LandingPage} />
-          <Route path='/workout' component={WorkoutPage} />
+          <WithWeightsCheckboxContext.Provider value={this.state}>
+            <Route path='/workout' component={WorkoutPage} />
+            <Route exact path='/parameters' component={ParametersPage} />
+          </WithWeightsCheckboxContext.Provider>
           <Route exact path='/create-workout' component={CreateWorkoutPage} />
           <Route exact path='/circuits' component={CircuitsPage} />
-          <Route exact path='/parameters' component={ParametersPage} />
           <Route exact path='/finished' component={FinishedPage} />
           <Route 
               exact 

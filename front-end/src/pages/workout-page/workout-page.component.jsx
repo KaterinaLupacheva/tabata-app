@@ -18,17 +18,23 @@ import CircuitsAndTimer from '../../components/circuits-and-timer/circuits-and-t
 import soundfileStop from '../../assets/3-2-1-stop.mp3';
 import soundfileStart from '../../assets/1-2-3-start.mp3';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
+import WithWeightsCheckboxContext from '../../contexts/with-weights-checkbox.context';
 
 const ExercisesPreviewWithSpinner = WithSpinner(ExercisesPreview);
 
 class WorkoutPage extends React.Component {
+    static contextType = WithWeightsCheckboxContext;
+
+    state = {
+        checked : this.context.checked
+    }
 
     componentDidMount() {
         const { workout, fetchRandomWorkoutStartAsync, resetToInitialState, 
         selectedDuration, selectedMuscleGroup } = this.props;
         resetToInitialState();
         if (workout.length === 0 && selectedDuration.length !==0 && selectedMuscleGroup !== 0) {
-            fetchRandomWorkoutStartAsync(selectedDuration * 2, selectedMuscleGroup);
+            fetchRandomWorkoutStartAsync(selectedDuration * 2, selectedMuscleGroup, this.state.checked);
         } else if (workout.length === 0) {
             this.props.history.push('/create-workout');
         }
@@ -84,7 +90,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchRandomWorkoutStartAsync: (numOfExercises, muscleGroup) => dispatch(fetchRandomWorkoutStartAsync(numOfExercises, muscleGroup)),
+  fetchRandomWorkoutStartAsync: (numOfExercises, muscleGroup, checked) => dispatch(fetchRandomWorkoutStartAsync(numOfExercises, muscleGroup, checked)),
   toggleStart: () => dispatch(toggleStart()),
   toggleStop: () => dispatch(toggleStop()),
   findPressedDuration: options => dispatch(findPressedDuration(options)),

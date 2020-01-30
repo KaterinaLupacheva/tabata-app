@@ -12,8 +12,7 @@ const CheckboxWithIcon = () => (
                 <Checkbox checked={checked} toggleChecked={toggleChecked} />
                 <DumbbellIcon />
             </div>
-            )}
-        }
+        )}
     </WithWeightsCheckboxContext.Consumer>
 );
 
