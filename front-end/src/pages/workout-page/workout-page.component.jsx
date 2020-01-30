@@ -43,6 +43,8 @@ class WorkoutPage extends React.Component {
     }
 
     handleCompleteTimer = (time) => {
+        const { toggleStop } = this.props;
+        toggleStop();
         this.props.history.push({
             pathname: '/finished'
         });

@@ -5,8 +5,8 @@ const INITIAL_STATE = {
     started: false,
     paused: false,
     buttonTitle: 'Start',
-    exerciseTime: 30 * 1000,
-    rest: 10,
+    exerciseTime: 10 * 1000,
+    rest: 5,
     timerColor: 'white'
 };
 
