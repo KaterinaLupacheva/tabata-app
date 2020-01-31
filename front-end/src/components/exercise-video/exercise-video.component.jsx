@@ -21,8 +21,7 @@ const ExerciseVideo = ({ link, height }) => {
         <video 
             className='exercise-video' 
             height={height} 
-            muted 
-            // autoPlay 
+            muted
             loop
             playsInline
             ref={vidRef} 
