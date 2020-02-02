@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './startpage.styles.scss';
 
 import StartMenu from '../../components/start-menu/start-menu.component';
+import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
 import { RESET_STATE } from '../../redux/reset.type';
 
 class StartPage extends React.Component {
@@ -16,6 +17,7 @@ class StartPage extends React.Component {
         return (
             <div className='startpage'>
                 <StartMenu />
+                <StripeCheckoutButton />
             </div>
     )}
 }     
