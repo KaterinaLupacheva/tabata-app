@@ -5,7 +5,7 @@ import './pay-button.styles.scss';
 
 const PayButton = () => (
     <Link to='/checkout'>
-        <button className='pay-button'>PAY NOW</button>
+        <button className='pay-button pulse-grow'>PAY NOW</button>
     </Link>
 );
 

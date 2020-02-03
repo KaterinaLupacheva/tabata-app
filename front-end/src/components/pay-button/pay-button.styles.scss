@@ -1,0 +1,29 @@
+.pay-button{
+    background-color: var(--ramonak-color);
+    width: 20vw;
+    height: 10vh;
+    color: white;
+    font-size: 2vw;
+    cursor: pointer;
+    border: 3px solid var(--ramonak-color);
+    border-radius: 20px;
+}
+
+@keyframes pulse-grow {
+    to {
+      transform: scale(1.1);
+    }
+  }
+  .pulse-grow {
+    display: inline-block;
+    -webkit-tap-highlight-color: transparent;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px transparent;
+  }
+  .pulse-grow:hover {
+    animation-name: pulse-grow;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
