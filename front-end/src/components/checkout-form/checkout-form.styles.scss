@@ -1,0 +1,29 @@
+.checkout-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40vw;
+    background-color: white;
+
+    .card-element{
+        width: 35vw;
+        padding-top: 20px;
+    }
+
+    .checkout-pay-button{
+        width: 20vw;
+        height: 5vh;
+        background-color: var(--ramonak-color);
+        color: white;
+        font-size: larger;
+        border-radius: 10px;
+        border: 1px solid var(--ramonak-color);
+        cursor: pointer;
+
+        &:hover, &:active, &:focus{
+            background-color: green;
+            border: 1px solid green;
+        }
+    }
+}
