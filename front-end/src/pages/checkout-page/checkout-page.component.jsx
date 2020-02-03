@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { Elements, StripeProvider } from "react-stripe-elements";
+import CheckoutForm from '../../components/checkout-form/checkout-form.component';
 
 import './checkout-page.styles.scss';
 
@@ -15,7 +16,7 @@ const CheckoutPage = () => {
         {apiKey && (
           <StripeProvider apiKey={apiKey}>
             <Elements>
-              {/* <CheckoutForm /> */}
+              <CheckoutForm />
             </Elements>
           </StripeProvider>
         )}
