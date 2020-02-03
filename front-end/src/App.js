@@ -12,6 +12,7 @@ import ParametersPage from './pages/parameters-page/parameters-page.component';
 import FinishedPage from './pages/finished-page/finished-page.component';
 import CircuitsPage from './pages/circuits-page/circuits-page.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
+import CheckoutPage  from './pages/checkout-page/checkout-page.component';
 // import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import Header from './components/header/header.component';
 import WithWeightsCheckboxContext from './contexts/with-weights-checkbox.context';
@@ -71,6 +72,7 @@ class App extends React.Component {
           <Route exact path='/create-workout' component={CreateWorkoutPage} />
           <Route exact path='/circuits' component={CircuitsPage} />
           <Route exact path='/finished' component={FinishedPage} />
+          <Route exact path='/checkout' component={CheckoutPage} />
           <Route 
               exact 
               path='/signin' 
