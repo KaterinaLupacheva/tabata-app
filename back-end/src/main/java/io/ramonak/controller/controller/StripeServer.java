@@ -35,7 +35,7 @@ public class StripeServer {
 
     private static ProductDetails getProductDetails() {
         ProductDetails details = new ProductDetails();
-        details.amount = (long) 1990;
+        details.amount = (long) 199;
         details.currency = "USD";
         return details;
     }
