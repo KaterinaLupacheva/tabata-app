@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CardElement, injectStripe } from "react-stripe-elements";
+import api from '../../stripeApi';
 
 import './checkout-form.styles.scss';
 
@@ -11,6 +12,13 @@ const CheckoutForm = () => {
     const [error, setError] = useState(null);
     const [amount, setAmount] = useState(100);
     const [currency, setCurrency] = useState('usd');
+
+    useEffect(()=> {
+        api.getProductDetails().then(productDetails => {
+            setAmount(productDetails.amount / 100);
+            setCurrency(productDetails.currency)
+          });
+    });
 
     const handleSubmit = (ev) => {
         ev.preventDefault();
