@@ -23,12 +23,15 @@ The app is still work in progress. New features and bug fixes are added constant
 
 - React.js
 - Redux
+- React Hooks
+- Context API
 - SCSS
 - Responsive design
 
 ### Back-end
 
 - Spring Boot (Java Framework)
+- Spring Security
 - PostgreSQL Database
 - Vaadin Framework for admin console
 
