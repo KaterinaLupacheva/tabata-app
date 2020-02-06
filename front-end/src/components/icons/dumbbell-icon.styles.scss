@@ -1,4 +1,12 @@
 .dumbbell-icon{
-    margin-left: 20px;
-    color:var(--ramonak-color);
+    width: 8vw;
+    height: 8vw;
+    cursor: pointer;
+}
+
+.dumbbell-empty{
+    width: 8vw;
+    height: 8vw;
+    fill: var(--ramonak-color);
+    cursor: pointer;
 }
