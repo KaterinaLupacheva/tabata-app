@@ -10,6 +10,10 @@
     @include breakpoint {
         margin: auto 0 0 0;
         width: 100%;
+
+        a{
+            width: 100%;
+        }
     }
 
     .next-button {
