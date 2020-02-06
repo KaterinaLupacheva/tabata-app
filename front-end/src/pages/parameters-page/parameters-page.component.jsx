@@ -11,9 +11,9 @@ import { fetchCircuits, changePressedCircuit, findPressedCircuit } from '../../r
 import './parameters-page.styles.scss';
 import ButtonGroup from '../../components/button-group/button-group.component';
 import NextButton from '../../components/next-button/next-button.component';
-import CheckboxWithIcon from '../../components/checkbox-with-icon/checkbox-with-icon.component';
+import DumbbellIcon from '../../components/icons/dumbbell-icon.component';
 
-class ParametersPage extends React.Component {
+class ParametersPage extends React.Component { 
     componentDidMount() {
         const { fetchDurations, fetchCircuits, fetchMuscleGroups } = this.props;
         fetchDurations();
@@ -60,10 +60,10 @@ class ParametersPage extends React.Component {
                             changePressedMuscleGroup(option.value);
                             findPressedMuscleGroup(muscleGroupOptions);
                         }}
-                    />
-                    <CheckboxWithIcon />
+                    /> 
+                     <DumbbellIcon />                   
                 </div>
-                <NextButton path='/workout'/>
+                    <NextButton path='/workout'/>
             </div>
         )
     }
