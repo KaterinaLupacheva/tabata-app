@@ -23,6 +23,18 @@
             overflow: auto;
             height: 100%;
         }
+
+        .icon-with-text{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .with-weights-text{
+            color: white;
+            margin-left: 20px;
+        }
     }
 
     .title{
