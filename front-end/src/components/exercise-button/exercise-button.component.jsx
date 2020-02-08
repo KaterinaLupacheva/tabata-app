@@ -15,7 +15,7 @@ const ExerciseButton = ({ exercise, toggleExercise, toggleButtonPressed }) => {
                 <div className='exercise-name'>     
                     {name.toLowerCase()}
                     {exercise.isWithWeights ? 
-                        <DumbbellIcon /> : 
+                        <DumbbellIcon size={'5vh'}/> : 
                         ''}
                 </div>
         </div>
