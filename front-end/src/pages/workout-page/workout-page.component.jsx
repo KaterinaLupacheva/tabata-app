@@ -19,13 +19,12 @@ import CircuitsAndTimer from '../../components/circuits-and-timer/circuits-and-t
 import soundfileStop from '../../assets/3-2-1-stop.mp3';
 import soundfileStart from '../../assets/1-2-3-start.mp3';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
-import WithWeightsCheckboxContext from '../../contexts/with-weights-checkbox.context';
+import { WithWeightsContext } from '../../contexts/with-weights.context';
 
 const ExercisesPreviewWithSpinner = WithSpinner(ExercisesPreview);
 
 class WorkoutPage extends React.Component {
-    static contextType = WithWeightsCheckboxContext;
-
+    static contextType = WithWeightsContext;
     state = {
         checked : this.context.checked
     }
