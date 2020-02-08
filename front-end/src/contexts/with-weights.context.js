@@ -1,19 +1,15 @@
 import React, { useState, createContext } from 'react';
 
 export const WithWeightsContext = createContext({
-    checked: false,
+    checked: null,
     toggleChecked: () => {}
 });
 
 export const WithWeightsContextProvider = (props) => {
-    const toggleChecked = (bol) => {
-        console.log('HERE' + JSON.stringify(state))
-        // setState({...state, checked: !initialState.checked})
+    const toggleChecked = (newChecked) => {
         setState({...state,
-            checked: bol
-        })
-        console.log('AFTER TOGGLE ' + JSON.stringify(state))
-    };
+            checked: newChecked
+    })};
     
     const initialState = {
         checked: false,
