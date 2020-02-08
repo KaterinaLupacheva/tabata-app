@@ -9,6 +9,7 @@ import { selectCircuitOptions } from '../../redux/circuit/circuit.selectors';
 import { fetchCircuits, changePressedCircuit, findPressedCircuit } from '../../redux/circuit/circuit.actions';
 
 import './parameters-page.styles.scss';
+import AbsoluteWrapper from '../../components/absolute-wrapper/absolute-wrapper.component';
 import ButtonGroup from '../../components/button-group/button-group.component';
 import NextButton from '../../components/next-button/next-button.component';
 import DumbbellIcon from '../../components/icons/dumbbell-icon.component';
@@ -35,36 +36,38 @@ class ParametersPage extends React.Component {
         const { durationOptions, circuitOptions, muscleGroupOptions, changePressedDuration, findPressedDuration,
             changePressedCircuit, findPressedCircuit, changePressedMuscleGroup, findPressedMuscleGroup } = this.props;
         return (
-            <div className='parameters'>
-                <div className='button-groups'>
-                    <h2 className='title'>Circuit's duration</h2>
-                    <ButtonGroup 
-                        options={durationOptions} 
-                        handleOptionChange={option => {
-                            changePressedDuration(option.value);
-                            findPressedDuration(durationOptions);
-                        }}
-                    />
-                    <h2 className='title'>Number of circuits</h2>
-                    <ButtonGroup 
-                        options={circuitOptions} 
-                        handleOptionChange={option => {
-                            changePressedCircuit(option.value);
-                            findPressedCircuit(circuitOptions);
-                        }}
-                    />
-                    <h2 className='title'>Focus muscle group</h2>
-                    <ButtonGroup 
-                        options={muscleGroupOptions} 
-                        handleOptionChange={option => {
-                            changePressedMuscleGroup(option.value);
-                            findPressedMuscleGroup(muscleGroupOptions);
-                        }}
-                    /> 
-                     <DumbbellIcon />                   
+            <AbsoluteWrapper>
+                <div className='parameters'>
+                    <div className='button-groups'>
+                        <h2 className='title'>Circuit's duration</h2>
+                        <ButtonGroup 
+                            options={durationOptions} 
+                            handleOptionChange={option => {
+                                changePressedDuration(option.value);
+                                findPressedDuration(durationOptions);
+                            }}
+                        />
+                        <h2 className='title'>Number of circuits</h2>
+                        <ButtonGroup 
+                            options={circuitOptions} 
+                            handleOptionChange={option => {
+                                changePressedCircuit(option.value);
+                                findPressedCircuit(circuitOptions);
+                            }}
+                        />
+                        <h2 className='title'>Focus muscle group</h2>
+                        <ButtonGroup 
+                            options={muscleGroupOptions} 
+                            handleOptionChange={option => {
+                                changePressedMuscleGroup(option.value);
+                                findPressedMuscleGroup(muscleGroupOptions);
+                            }}
+                        /> 
+                        <DumbbellIcon />                   
+                    </div>
+                        <NextButton path='/workout'/>
                 </div>
-                    <NextButton path='/workout'/>
-            </div>
+            </AbsoluteWrapper>
         )
     }
 };

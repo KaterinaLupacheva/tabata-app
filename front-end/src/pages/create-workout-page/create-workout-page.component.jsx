@@ -9,6 +9,7 @@ import { fetchMuscleGroups, changePressedMuscleGroup,
     findPressedMuscleGroup} from '../../redux/muscle-group/muscle-group.actions';
 import { selectWorkoutExercises } from '../../redux/workout/workout.selectors';
 import './create-workout-page.styles.scss';
+import AbsoluteWrapper from '../../components/absolute-wrapper/absolute-wrapper.component';
 import ExercisesList from '../../components/exercises-list/exercises-list.component';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 import ButtonGroup from '../../components/button-group/button-group.component';
@@ -39,22 +40,24 @@ class CreateWorkoutPage extends React.Component {
     render() {
         const { isExercisesFetching, muscleGroupOptions, workoutExercises } = this.props;
         return (
-            <div className='create-workout-page'>
-                <div className='chose-exercises'>Chose exercises for workout</div>
-                <div className='button-group-container'>
-                    <ButtonGroup 
-                        options={muscleGroupOptions} 
-                        handleOptionChange={option => this.handleOptionChange(option)}
-                    />
+            <AbsoluteWrapper>
+                <div className='create-workout-page'>
+                    <div className='chose-exercises'>Chose exercises for workout</div>
+                    <div className='button-group-container'>
+                        <ButtonGroup 
+                            options={muscleGroupOptions} 
+                            handleOptionChange={option => this.handleOptionChange(option)}
+                        />
+                    </div>
+                    <div className='exercises-container'>                       
+                        <ExercisesListWithSpinner isLoading={isExercisesFetching} {...this.props}/>
+                    </div>
+                    {workoutExercises.length > 0 ? 
+                        <NextButton path={'/circuits'}/> :
+                        ''
+                    }
                 </div>
-                <div className='exercises-container'>                       
-                    <ExercisesListWithSpinner isLoading={isExercisesFetching} {...this.props}/>
-                </div>
-                {workoutExercises.length > 0 ? 
-                    <NextButton path={'/circuits'}/> :
-                    ''
-                }
-            </div>
+            </AbsoluteWrapper>
         )
     }
 };

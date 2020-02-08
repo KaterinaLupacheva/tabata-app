@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './startpage.styles.scss';
-
+import AbsoluteWrapper from '../../components/absolute-wrapper/absolute-wrapper.component';
 import StartMenu from '../../components/start-menu/start-menu.component';
 import { RESET_STATE } from '../../redux/reset.type';
 
@@ -14,9 +14,11 @@ class StartPage extends React.Component {
 
     render() {
         return (
-            <div className='startpage'>
-                <StartMenu />
-            </div>
+            <AbsoluteWrapper>
+                <div className='startpage'>
+                    <StartMenu />
+                </div>
+            </AbsoluteWrapper>
     )}
 }     
 

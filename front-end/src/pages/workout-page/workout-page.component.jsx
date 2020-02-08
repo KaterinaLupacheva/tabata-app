@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import './workout-page.styles.scss';
+import AbsoluteWrapper from '../../components/absolute-wrapper/absolute-wrapper.component';
 import { selectWorkoutExercises } from '../../redux/workout/workout.selectors';
 import { fetchRandomWorkoutStartAsync, resetToInitialState } from  '../../redux/workout/workout.actions';
 import { selectIsWorkoutFetching } from '../../redux/workout/workout.selectors';
@@ -62,20 +63,22 @@ class WorkoutPage extends React.Component {
     render() {
         const { audioStatusStop, audioStatusStart, toggleStop, isWorkoutFetching } = this.props;
         return(
-            <div className='workout-page'>
-                <CircuitsAndTimer handleCompleteTimer={this.handleCompleteTimer} />
-                <ExercisesPreviewWithSpinner isLoading={isWorkoutFetching} />
-                <PlaySound 
-                        audioFile={soundfileStop}
-                        status={audioStatusStop} 
-                        onFinishedPlaying={()=> toggleStop()}
+            <AbsoluteWrapper>
+                <div className='workout-page'>
+                    <CircuitsAndTimer handleCompleteTimer={this.handleCompleteTimer} />
+                    <ExercisesPreviewWithSpinner isLoading={isWorkoutFetching} />
+                    <PlaySound 
+                            audioFile={soundfileStop}
+                            status={audioStatusStop} 
+                            onFinishedPlaying={()=> toggleStop()}
+                        />
+                    <PlaySound 
+                            audioFile={soundfileStart}
+                            status={audioStatusStart} 
+                            onFinishedPlaying={()=> this.handleWorkoutStart()}
                     />
-                <PlaySound 
-                        audioFile={soundfileStart}
-                        status={audioStatusStart} 
-                        onFinishedPlaying={()=> this.handleWorkoutStart()}
-                />
-            </div>
+                </div>
+            </AbsoluteWrapper>
         )
     }
 };
