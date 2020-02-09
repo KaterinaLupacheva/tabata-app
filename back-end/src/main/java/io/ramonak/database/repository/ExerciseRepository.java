@@ -29,4 +29,6 @@ public interface ExerciseRepository extends CrudRepository<Exercise, Long> {
     List<Exercise> findAllByIdIn(List<Long> ids);
 
     List<Exercise> findAllByMuscleGroup_Name(String muscleGroupName);
+
+    List<Exercise> findAllByOrderByName();
 }
