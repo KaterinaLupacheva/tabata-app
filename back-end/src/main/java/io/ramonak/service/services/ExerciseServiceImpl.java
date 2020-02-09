@@ -29,10 +29,10 @@ public class ExerciseServiceImpl implements ExerciseService {
 
     @Override
     public List<ExerciseDTO> getAllExercises() {
+        List<Exercise> allExercises = exerciseRepository.findAllByOrderByName();
         List<ExerciseDTO> result = new ArrayList<>();
-        Iterable<Exercise> exercises = exerciseRepository.findAll();
         int i = 1;
-        for (Exercise tempExercise : exercises) {
+        for (Exercise tempExercise : allExercises) {
             ExerciseDTO exerciseDTO = convertToDTO(tempExercise);
             exerciseDTO.setNumber(i);
             result.add(exerciseDTO);
