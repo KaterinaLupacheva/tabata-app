@@ -10,6 +10,7 @@
     .exercises-list{
         overflow-y: scroll;
         padding-right: 20px;
+        width: 20vw;
 
         @include breakpoint {
             display: none;
