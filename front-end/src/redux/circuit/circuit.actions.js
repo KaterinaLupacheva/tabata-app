@@ -19,3 +19,7 @@ export const findPressedCircuit = circuitOptions => ({
 export const incrementCurrentCircuit = () => ({
     type: CircuitActionTypes.INCREMENT_CURRENT_CIRCUIT
 });
+
+export const resetCurrentCircuit = () => ({
+    type: CircuitActionTypes.RESET_CURRENT_CIRCUIT
+});

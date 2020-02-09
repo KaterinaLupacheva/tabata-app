@@ -20,9 +20,9 @@ export const fetchRandomWorkoutFailure = errorMessage => ({
     payload: errorMessage
 }); 
 
-export const fetchRandomWorkoutStartAsync = (numOfExercises, muscleGroup) => {
+export const fetchRandomWorkoutStartAsync = (numOfExercises, muscleGroup, isWithWeights) => {
     return dispatch => {
-        const response = fetch(`${path}/exercises/random/${numOfExercises}/${muscleGroup}`);
+        const response = fetch(`${path}/exercises/random/${numOfExercises}/${muscleGroup}?isWithWeights=${isWithWeights}`);
         dispatch(fetchRandomWorkoutStart());
         response.then(response => response.json())
         .then(exercises => {

@@ -30,6 +30,11 @@ const circuitReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentCircuit: state.currentCircuit + 1
             };
+        case CircuitActionTypes.RESET_CURRENT_CIRCUIT:
+            return{
+                ...state,
+                currentCircuit: 1
+            };
         case RESET_STATE.type:
             return INITIAL_STATE;
         default:
