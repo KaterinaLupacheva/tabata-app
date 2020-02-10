@@ -57,14 +57,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 // Restrict access to our application.
                 .and().authorizeRequests()
-                .antMatchers("/exercises/**").permitAll()
-
+//                .antMatchers("/exercises/**").permitAll()
+                .antMatchers("/admin/**").hasAuthority("admin")
                 // Allow all flow internal requests.
                 .requestMatchers(SecurityUtils::isFrameworkInternalRequest).permitAll()
 
                 // Allow all requests by logged in users.
 //                .anyRequest().hasAnyAuthority(Role.getAllRoles())
-                .anyRequest().authenticated() //
+//                .anyRequest().authenticated()
+                .anyRequest().permitAll()
                 // Configure the login page.
                 .and().formLogin().loginPage(LOGIN_URL).permitAll()
 
