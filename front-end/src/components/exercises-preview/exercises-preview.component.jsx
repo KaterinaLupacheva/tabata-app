@@ -28,8 +28,9 @@ const ExercisesPreview = ({ exercises, isImage, nextExerciseName, nextExerciseLi
             { isImage ? 
                 (exercises.map((exercise) => (exercise.isActive === true ? (
                     <div key={exercise.name} className='image-or-next'>
-                        {exercise.link[exercise.link.length-1] === '4' ? 
-                            <ExerciseVideo link={exercise.link} height={'100%'} /> :
+                        {exercise.link[exercise.link.length-1] === '4' ?                             
+                            <ExerciseVideo link={exercise.link} height={'100%'} />
+                             :
                             <ExerciseImage link={exercise.link} />
                         }
                         <ActiveExerciseName />

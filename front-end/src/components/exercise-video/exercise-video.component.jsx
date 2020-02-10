@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { VideoContext } from '../../contexts/video.context';
+import {useSpring, animated} from 'react-spring';
 
 import './exercise-video.styles.scss';
 
@@ -17,8 +18,11 @@ const ExerciseVideo = ({ link, height }) => {
         }
     });
 
+    const props = useSpring({height: `${height}`, from: {height: '0%'}});
+
     return(
-        <video 
+        <animated.video 
+            style={props}
             className='exercise-video' 
             height={height} 
             muted
@@ -27,7 +31,7 @@ const ExerciseVideo = ({ link, height }) => {
             ref={vidRef} 
         >
             <source src={`${link}`} type="video/mp4" />
-        </video>
+        </animated.video>
 )};
 
 export default ExerciseVideo;
