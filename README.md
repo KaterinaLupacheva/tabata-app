@@ -34,6 +34,10 @@ The app is still work in progress. New features and bug fixes are added constant
 - [PostgreSQL Database](https://www.postgresql.org/)
 - [Vaadin Framework](https://vaadin.com/) for admin console
 
+### CI/CD
+
+- [GitHub Actions](https://github.com/features/actions) for automated build and deploy to server
+
 ## Launch - Front-end
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
