@@ -5,6 +5,7 @@
     height: 10vh;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     transition: all 1s;
 
     @include breakpoint {
