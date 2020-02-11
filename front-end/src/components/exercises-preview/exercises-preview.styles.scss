@@ -7,6 +7,10 @@
     height: 55vh;
     padding-left: 8%;
 
+    @include breakpoint {
+        padding: 0;
+    }
+
     .exercises-list{
         overflow-y: scroll;
         padding-right: 20px;
