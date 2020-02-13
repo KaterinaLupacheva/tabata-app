@@ -40,8 +40,6 @@
         @include breakpoint {
             overflow: auto;
             height: 100%;
-            display: unset;
-            justify-content: unset;
         }
     }
 }
