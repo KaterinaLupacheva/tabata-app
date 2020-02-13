@@ -8,6 +8,10 @@ body {
   --ramonak-color: #E0314B;
 }
 
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -15,5 +19,5 @@ code {
 
 html, body, #root, #root>div {
   display: block;
-  /* overflow: auto; */
+  overflow: auto;
 } 
