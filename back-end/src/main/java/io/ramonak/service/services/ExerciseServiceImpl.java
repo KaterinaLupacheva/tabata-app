@@ -53,21 +53,7 @@ public class ExerciseServiceImpl implements ExerciseService {
 
         //if cardio
         if(muscleGroup.toLowerCase().equals("cardio")) {
-            List<ExerciseDTO> randomExercises = new ArrayList<>();
-            int divider = numOfExercises / allIds.size();
-            if (divider > 0) {
-                List<ExerciseDTO> exercisesByRandomIds = getExercisesByRandomIds(allIds);
-                for (int i = 0; i < numOfExercises/allIds.size(); i++) {
-                    randomExercises.addAll(exercisesByRandomIds);
-                }
-                List<Long> randomIds = getRandomIds(numOfExercises % allIds.size(), allIds);
-                randomExercises.addAll(getExercisesByRandomIds(randomIds));
-            } else {
-                List<Long> randomIds = getRandomIds(numOfExercises, allIds);
-                randomExercises = getExercisesByRandomIds(randomIds);
-            }
-            Collections.shuffle(randomExercises);
-            return randomExercises;
+            return getCardioExercises(numOfExercises, allIds);
         }
 
         // create random array of 80% of random ids
@@ -88,6 +74,24 @@ public class ExerciseServiceImpl implements ExerciseService {
         // shuffle result array
         Collections.shuffle(result);
         return result;
+    }
+
+    private List<ExerciseDTO> getCardioExercises(Integer numOfExercises, List<Long> allIds) {
+        List<ExerciseDTO> randomExercises = new ArrayList<>();
+        int divider = numOfExercises / allIds.size();
+        if (divider > 0) {
+            List<ExerciseDTO> exercisesByRandomIds = getExercisesByRandomIds(allIds);
+            for (int i = 0; i < numOfExercises/allIds.size(); i++) {
+                randomExercises.addAll(exercisesByRandomIds);
+            }
+            List<Long> randomIds = getRandomIds(numOfExercises % allIds.size(), allIds);
+            randomExercises.addAll(getExercisesByRandomIds(randomIds));
+        } else {
+            List<Long> randomIds = getRandomIds(numOfExercises, allIds);
+            randomExercises = getExercisesByRandomIds(randomIds);
+        }
+        Collections.shuffle(randomExercises);
+        return randomExercises;
     }
 
     private List<ExerciseDTO> getExercisesByRandomIds(List<Long> randomIds) {
