@@ -53,8 +53,19 @@ public class ExerciseServiceImpl implements ExerciseService {
 
         //if cardio
         if(muscleGroup.toLowerCase().equals("cardio")) {
-            List<Long> randomIds = getRandomIds(numOfExercises, allIds);
-            List<ExerciseDTO> randomExercises = getExercisesByRandomIds(randomIds);
+            List<ExerciseDTO> randomExercises = new ArrayList<>();
+            int divider = numOfExercises / allIds.size();
+            if (divider > 0) {
+                List<ExerciseDTO> exercisesByRandomIds = getExercisesByRandomIds(allIds);
+                for (int i = 0; i < numOfExercises/allIds.size(); i++) {
+                    randomExercises.addAll(exercisesByRandomIds);
+                }
+                List<Long> randomIds = getRandomIds(numOfExercises % allIds.size(), allIds);
+                randomExercises.addAll(getExercisesByRandomIds(randomIds));
+            } else {
+                List<Long> randomIds = getRandomIds(numOfExercises, allIds);
+                randomExercises = getExercisesByRandomIds(randomIds);
+            }
             Collections.shuffle(randomExercises);
             return randomExercises;
         }
