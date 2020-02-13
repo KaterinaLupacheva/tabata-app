@@ -33,7 +33,6 @@
 
     .exercises-container {
         width: 100%;
-        // height: 60vh;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -41,6 +40,8 @@
         @include breakpoint {
             overflow: auto;
             height: 100%;
+            display: unset;
+            justify-content: unset;
         }
     }
 }
