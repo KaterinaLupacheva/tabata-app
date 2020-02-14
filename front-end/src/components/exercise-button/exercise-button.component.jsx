@@ -9,6 +9,7 @@ import { toggleExercise } from '../../redux/workout/workout.actions';
 const ExerciseButton = ({ exercise, toggleExercise, toggleButtonPressed }) => {
     const { name, isPressed } = exercise;
     const[isClicked, toggleClicked] = useState(false);
+    console.log('NAME ' + name)
     return(
         <div 
             className={`${isPressed ? 'pressed' : ''} exercise-button`} 
