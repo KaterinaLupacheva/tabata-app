@@ -6,7 +6,7 @@
     align-items: center;
     text-align: center;
     background-image: linear-gradient(to bottom left, black 60%, #E0314B);
-    height: 90vh;
+    height: 85vh;
     width: 80vw;
     margin: auto;
     border-radius: 20px;
@@ -14,19 +14,38 @@
     @include breakpoint {
         overflow: auto;
         width: 100%;
+        height: 100%;
     }
 
     .button-groups{
         height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         @include breakpoint {
             overflow: auto;
             height: 100%;
+            width: 100%;
+        }
+
+        .icon-with-text{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .with-weights-text{
+            color: white;
+            margin-left: 20px;
         }
     }
 
     .title{
         color:  white;
         text-transform: uppercase;
+        margin-bottom: 5px;
     }
 }

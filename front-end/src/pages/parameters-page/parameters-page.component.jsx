@@ -63,7 +63,10 @@ class ParametersPage extends React.Component {
                                 findPressedMuscleGroup(muscleGroupOptions);
                             }}
                         /> 
-                        <DumbbellIcon />                   
+                        <div className='icon-with-text'>
+                            <DumbbellIcon size={'8vh'}/> 
+                            <div className='with-weights-text'>{'With Weights'}</div>               
+                        </div>
                     </div>
                         <NextButton path='/workout'/>
                 </div>

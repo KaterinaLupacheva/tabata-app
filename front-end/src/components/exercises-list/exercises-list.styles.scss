@@ -3,11 +3,13 @@
 .exercises-list-container {
     display: flex;
     flex-direction: row;
-    height: 55vh;
+    height: 50vh;
+    justify-content: space-around;
 
     @include breakpoint {
         justify-content: center;
         align-items: center;
+        height: 55vh;
     }
 
     .icon-container{

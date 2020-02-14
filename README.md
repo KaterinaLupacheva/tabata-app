@@ -21,16 +21,22 @@ The app is still work in progress. New features and bug fixes are added constant
 
 ### Front-end
 
-- React.js
-- Redux
-- SCSS
+- [React.js](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Sass](https://sass-lang.com/)
+- [React-spring animation](https://www.react-spring.io/)
 - Responsive design
 
 ### Back-end
 
-- Spring Boot (Java Framework)
-- PostgreSQL Database
-- Vaadin Framework for admin console
+- [Spring Boot](https://spring.io/projects/spring-boot) (Java Framework)
+- [Spring Security](https://spring.io/projects/spring-security)
+- [PostgreSQL Database](https://www.postgresql.org/)
+- [Vaadin Framework](https://vaadin.com/) for admin console
+
+### CI/CD
+
+- [GitHub Actions](https://github.com/features/actions) for automated build and deploy to server
 
 ## Launch - Front-end
 
@@ -49,4 +55,4 @@ npm install
 
 ## Launch - Back-end
 
-Back-end app is deployed to Heroku: [Tabata-backend](https://tabata-backend.herokuapp.com/)
+* `mvn spring-boot:run` - start backend server

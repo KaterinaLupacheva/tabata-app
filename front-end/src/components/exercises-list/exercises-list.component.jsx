@@ -62,8 +62,9 @@ const ExercisesList = ({ exercises, indexOfFirstEx, numOfShowingEx, showNextExer
     } else {
         return (
             <div className='exercises-column'>
-                {exercises.sort((a,b) => a.name.localeCompare(b.name))
-                .map(ex => <ExerciseButton key={ex.id} exercise={ex}/>)}
+                {exercises
+                    .sort((a,b) => a.name.localeCompare(b.name))
+                    .map(ex => <ExerciseButton key={ex.id} exercise={ex}/>)}
             </div>
         )
     }
