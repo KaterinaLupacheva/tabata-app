@@ -27,7 +27,8 @@ const ExercisesPreviewWithSpinner = WithSpinner(ExercisesPreview);
 class WorkoutPage extends React.Component {
     static contextType = WithWeightsContext;
     state = {
-        checked : this.context.checked
+        checked : this.context.checked,
+        showGetReady: true
     }
 
     componentDidMount() {
@@ -55,6 +56,7 @@ class WorkoutPage extends React.Component {
         if(currentCircuit === 1 && workout.find(ex => ex.isActive === true) === undefined) {
             toggleTimer();
             toggleStart();
+            this.setState({ showGetReady: false});
         } else {
             toggleStart();
         }
@@ -66,7 +68,7 @@ class WorkoutPage extends React.Component {
             <AbsoluteWrapper>
                 <div className='workout-page'>
                     <CircuitsAndTimer handleCompleteTimer={this.handleCompleteTimer} />
-                    <ExercisesPreviewWithSpinner isLoading={isWorkoutFetching} />
+                    <ExercisesPreviewWithSpinner isLoading={isWorkoutFetching} showGetReady={this.state.showGetReady} />
                     <PlaySound 
                             audioFile={soundfileStop}
                             status={audioStatusStop} 
