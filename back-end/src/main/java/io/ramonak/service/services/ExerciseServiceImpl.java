@@ -127,15 +127,17 @@ public class ExerciseServiceImpl implements ExerciseService {
         List<Long> allIds;
         if (muscleGroup.toLowerCase().equals("whole body")) {
             if(!isWithWeights) {
-                allIds = exerciseRepository.getAllIdsWithNoWeights();
+                allIds = exerciseRepository.getAllIdsWithNoWeightsAndLinkIsNotEmpty();
             } else {
-                allIds = exerciseRepository.getAllIds();
+                allIds = exerciseRepository.getAllIdsWhereLinkIsNotEmpty();
             }
         } else {
             if(!isWithWeights) {
-                allIds = exerciseRepository.getAllIdsForMuscleGroupWithNoWeights(muscleGroup.toLowerCase());
+                allIds = exerciseRepository
+                        .getAllIdsForMuscleGroupWithNoWeightsAndLinkIsNotEmpty(muscleGroup.toLowerCase());
             } else {
-                allIds = exerciseRepository.getAllIdsForMuscleGroup(muscleGroup.toLowerCase());
+                allIds = exerciseRepository
+                        .getAllIdsForMuscleGroupAndLinkIsNotEmpty(muscleGroup.toLowerCase());
             }
         }
         return allIds;
