@@ -1,10 +1,11 @@
 import MuscleGroupActionTypes from './muscle-group.types';
 import { createArray, changePressed, findPressedOption, setPressed } from '../param.utils';
 import { RESET_STATE } from '../reset.type';
+import { MUSCLE_GROUPS } from '../base-data';
 
 const INITIAL_STATE = {
     muscleGroupOptions: [],
-    selectedMuscleGroup: ''
+    selectedMuscleGroup: MUSCLE_GROUPS[0]
 };
 
 const muscleGroupReducer = (state = INITIAL_STATE, action) => {
