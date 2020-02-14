@@ -144,14 +144,15 @@ public class ExerciseServiceImpl implements ExerciseService {
     @Override
     public List<ExerciseDTO> getExercisesForMuscleGroup(String muscleGroup) {
         if (muscleGroup.toLowerCase().equals("whole body")) {
-            List<Exercise> tempResult = new ArrayList<>();
-            exerciseRepository.findAll().forEach(tempResult::add);
-            return tempResult.stream().map(this::convertToDTO).collect(Collectors.toList());
-        } else {
-            return exerciseRepository.findAllByMuscleGroup_Name(muscleGroup.toLowerCase())
+            return exerciseRepository.findAllWhereLinkIsNotEmpty()
                     .stream()
                     .map(this::convertToDTO)
                     .collect(Collectors.toList());
+        } else {
+            return exerciseRepository.findAllByMuscleGroup_Name(muscleGroup.toLowerCase())
+                .stream().filter(exercise -> exercise.getLink().length() > 0)
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
         }
     }
 

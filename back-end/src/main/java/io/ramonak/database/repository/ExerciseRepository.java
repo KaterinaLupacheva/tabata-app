@@ -31,4 +31,7 @@ public interface ExerciseRepository extends CrudRepository<Exercise, Long> {
     List<Exercise> findAllByMuscleGroup_Name(String muscleGroupName);
 
     List<Exercise> findAllByOrderByName();
+
+    @Query("select e from Exercise e where length(e.link) > 0")
+    List<Exercise> findAllWhereLinkIsNotEmpty();
 }
