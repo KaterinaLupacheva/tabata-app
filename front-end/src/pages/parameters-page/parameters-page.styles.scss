@@ -14,6 +14,7 @@
     @include breakpoint {
         overflow: auto;
         width: 100%;
+        height: 100%;
     }
 
     .button-groups{
@@ -21,10 +22,12 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
 
         @include breakpoint {
             overflow: auto;
             height: 100%;
+            width: 100%;
         }
 
         .icon-with-text{

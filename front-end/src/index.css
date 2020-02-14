@@ -19,5 +19,5 @@ code {
 
 html, body, #root, #root>div {
   display: block;
-  overflow: auto;
+  /* overflow: auto; */
 } 

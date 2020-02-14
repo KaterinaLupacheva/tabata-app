@@ -10,9 +10,10 @@
     transition: all 1s;
 
     @include breakpoint {
-        margin: auto 0 0 0;
         width: 100%;
-        height: unset;
+        position: fixed;
+        bottom: 0;
+        align-items: flex-end;
 
         a{
             width: 100%;
