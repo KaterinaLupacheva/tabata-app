@@ -26,10 +26,10 @@
         height: 100%;
         display: flex;
         justify-content: center;
+        flex-direction: column;
 
         @include breakpoint {
             width: 100%;
-            flex-direction: column;
         }
 
         .image-or-next {
