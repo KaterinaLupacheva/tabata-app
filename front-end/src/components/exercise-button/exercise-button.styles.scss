@@ -26,9 +26,5 @@
     .exercise-name{
         font-size: 20px;
         margin: auto;
-
-        @include breakpoint {
-            font-size: 8vw;
-        }
     }
 }
