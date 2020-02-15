@@ -7,7 +7,7 @@
     line-height: 10vh;
     background-color: var(--ramonak-color);
     color: white;
-    font-size: 10vh;
+    font-size: 9vh;
     text-transform: uppercase;
     border: 1.5px solid var(--ramonak-color);
     border-radius: 10px;
@@ -15,7 +15,6 @@
     margin: 0 35px;
 
     @include breakpoint {
-      min-width: 40vw;
       margin: 0;
     }
   
