@@ -16,18 +16,8 @@ import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up
 import Header from './components/header/header.component';
 import { WithWeightsContextProvider } from './contexts/with-weights.context';
 import { VideoContextProvider } from './contexts/video.context';
-import { useMediaQuery } from 'react-responsive'
 
 const App = () => {
-
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
-  const isTabletOrMobileDevice = useMediaQuery({
-    query: '(max-device-width: 1224px)'
-  });
-
-  if (isTabletOrMobile || isTabletOrMobileDevice) {
-    window.screen.orientation.lock("portrait");
-  }
   
   const { location } = useContext(__RouterContext);
   const transitions = useTransition(location, location => location.pathname, {
