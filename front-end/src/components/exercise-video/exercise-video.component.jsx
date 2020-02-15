@@ -28,7 +28,8 @@ const ExerciseVideo = ({ link, height }) => {
             muted
             loop
             playsInline
-            ref={vidRef} 
+            ref={vidRef}
+            key={link} 
         >
             <source src={`${link}`} type="video/mp4" />
         </animated.video>

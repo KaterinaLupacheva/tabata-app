@@ -24,26 +24,18 @@ const ExercisesPreview = ({ exercises, isImage, nextExerciseName, nextExerciseLi
             ))}
         </div>
         <div className='image-or-next-container'>
-            { isImage ? 
-                <div>
-                {
-                    (exercises.map((exercise) => (exercise.isActive === true ? (
-                        <div key={exercise.name} className='image-or-next'>                            
-                            <ExerciseVideo link={exercise.link} height={'100%'} />
-                            <ActiveExerciseName />
-                        </div>
-                        ) : '')
-                    ))
-                }
-                {showGetReady ? <h1 className='get-ready'>{'Get Ready And Press Start!!!'}</h1> : ''}
+            <div className='image-or-next'>
+                {isImage ? 
+                    <>
+                        <ActiveExerciseName />
+                        {showGetReady ? <h1 className='get-ready'>{'Get Ready And Press Start!!!'}</h1> : ''}
+                    </>
+                      : 
+                        <NextExercise visible={true} exerciseName={nextExerciseName} />}
+                {nextExerciseLink ? 
+                    <ExerciseVideo link={nextExerciseLink} height={`${isImage ? '100%' : '80%'}`} />
+                    : ''}
             </div>
-            : (
-                <div className='image-or-next'>
-                    <NextExercise visible={true} exerciseName={nextExerciseName} />
-                    <ExerciseVideo link={nextExerciseLink} height={'80%'} />                
-                </div>
-                )
-            }
         </div>
     </div>
 );
