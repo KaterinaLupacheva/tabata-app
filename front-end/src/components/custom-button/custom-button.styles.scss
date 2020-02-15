@@ -1,15 +1,14 @@
 @import '../../assets/scss/mixins.scss';
 
 .custom-button {
-    min-width: 150px;
+    min-width: 20vw;
     min-height: 10vh;
     letter-spacing: 0.5px;
-    line-height: 50px;
+    line-height: 10vh;
     background-color: var(--ramonak-color);
     color: white;
-    font-size: 36px;
+    font-size: 10vh;
     text-transform: uppercase;
-    font-weight: bolder;
     border: 1.5px solid var(--ramonak-color);
     border-radius: 10px;
     cursor: pointer;
