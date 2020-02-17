@@ -6,8 +6,8 @@ Fitness Progressive Web App ([PWA](https://ramonak.io/posts/what-is-progressive-
 
 - Random workout - every time you'll get a new set of exercises based on chosen workout duration (4, 8 or 12 minutes), number of sets (1, 2 or 4) and focus muscle group (whole body, upper body, lower body, cardio).
 - Create workout - chose the exercises from the list, chose number of sets and you are good to go!
-- Tabata timer - 20 sec of workout - 10 sec rest with voice countdown.
-- Notification about next exercise in workout - are shown during rest period.
+- Tabata timer - 20 sec of workout, 10 sec - rest. Voice countdown.
+- Notifications with video of the next exercise in workout - are shown during rest period.
 - List of exercises in workout - active exercises is highlighted. Autoscroll to active exercise.
 - Video of exercises - are shown during workout.
 - Repeat workout - after finishing workout, you can repeat it from the beginning.
@@ -15,7 +15,7 @@ Fitness Progressive Web App ([PWA](https://ramonak.io/posts/what-is-progressive-
 
 ## Status
 
-The app is still work in progress. New features and bug fixes are added constantly. But the core app is fully functioning.
+The app is fully functioning. I'm adding a new available exercises from time to time. Occasional bugfixing.
 
 ## Technologies
 
@@ -23,6 +23,7 @@ The app is still work in progress. New features and bug fixes are added constant
 
 - [React.js](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
+- [Progressive Web App](https://ramonak.io/posts/what-is-progressive-web-app)
 - [Sass](https://sass-lang.com/)
 - [React-spring animation](https://www.react-spring.io/)
 - Responsive design
