@@ -1,28 +1,28 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
-.card-container{
-    width: 20vw;
-    margin: 0 10px;
-    border: 1px ridge grey;
-    box-shadow: 10px 5px 5px black;
-    background-image: linear-gradient(to bottom left, black 60%, #E0314B);
-    color: white;
+.card-container {
+  width: 20vw;
+  margin: 0 10px;
+  border: 1px ridge grey;
+  box-shadow: 10px 5px 5px black;
+  background-image: linear-gradient(to bottom left, black 60%, #e0314b);
+  color: white;
 
-    @include breakpoint {
-        width: 80%;
-        margin: 10px 0;
-    }
+  @include breakpoint {
+    width: 80%;
+    margin: 10px 0;
+  }
 
-    .card-title{
-        font-weight: bold;
-        font-size: x-large;
-        padding: 20px 0;
-        text-align: center;
-        // border-bottom: 1px solid grey;
-    }
+  .card-title {
+    font-weight: bold;
+    font-size: x-large;
+    padding: 20px 0;
+    text-align: center;
+    // border-bottom: 1px solid grey;
+  }
 
-    .card-description{
-        padding: 10px 20px;
-        font-size: larger;
-    }
+  .card-description {
+    padding: 10px 20px;
+    font-size: larger;
+  }
 }

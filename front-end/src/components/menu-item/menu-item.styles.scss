@@ -1,53 +1,53 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
 .menu-item {
-    width: 30vw;
-    height: 20vh;
-    flex: 1 1 auto;
+  width: 30vw;
+  height: 20vh;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--ramonak-color);
+  border-radius: 20px;
+  margin: 0 7.5px 15px;
+  overflow: hidden;
+  color: var(--ramonak-color);
+
+  @include breakpoint {
+    width: 80vw;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+    background-color: var(--ramonak-color);
+  }
+
+  &:first-child {
+    margin-right: 7.5px;
+  }
+
+  &:last-child {
+    margin-left: 7.5px;
+  }
+
+  .content {
+    height: 90px;
+    padding: 0 25px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 3px solid var(--ramonak-color);
-    border-radius: 20px;
-    margin: 0 7.5px 15px;
-    overflow: hidden;
-    color:var(--ramonak-color);
+    position: absolute;
 
-    @include breakpoint {
-      width: 80vw;
-    }
-  
-    &:hover {
-      cursor: pointer;
-      color: white;
-      background-color: var(--ramonak-color);
-    }
-  
-    &:first-child {
-      margin-right: 7.5px;
-    }
-  
-    &:last-child {
-      margin-left: 7.5px;
-    }
-  
-    .content {
-      height: 90px;
-      padding: 0 25px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-  
-      .title {
-        font-weight: bold;
-        margin: 0 6px 0;
-        font-size: 3vw;
+    .title {
+      font-weight: bold;
+      margin: 0 6px 0;
+      font-size: 3vw;
 
-        @include breakpoint {
-          font-size: xx-large;
-        }
+      @include breakpoint {
+        font-size: xx-large;
       }
     }
   }
+}

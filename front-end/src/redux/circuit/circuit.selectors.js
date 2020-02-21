@@ -1,18 +1,18 @@
-import { createSelector } from 'reselect';
+import { createSelector } from "reselect";
 
 const selectCircuit = state => state.circuit;
 
 export const selectCircuitOptions = createSelector(
-    [selectCircuit],
-    circuit => circuit.options
+  [selectCircuit],
+  circuit => circuit.options
 );
 
 export const selectSelectedCircuit = createSelector(
-    [selectCircuit],
-    circuit => circuit.selectedCircuit
+  [selectCircuit],
+  circuit => circuit.selectedCircuit
 );
 
 export const selectCurrentCircuit = createSelector(
-    [selectCircuit],
-    circuit => circuit.currentCircuit
+  [selectCircuit],
+  circuit => circuit.currentCircuit
 );

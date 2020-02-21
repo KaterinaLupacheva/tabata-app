@@ -1,13 +1,12 @@
 .exercise-item {
-    font-size: large;
-    line-height: 50px;
-    text-align: left;
-    color: rgba(224, 49, 75, 0.5);
-    padding-left: 20px;
-    width: auto;
+  font-size: large;
+  line-height: 50px;
+  text-align: left;
+  color: rgba(224, 49, 75, 0.5);
+  padding-left: 20px;
+  width: auto;
 
-    &.active {
-        color: var(--ramonak-color);
-    }
+  &.active {
+    color: var(--ramonak-color);
+  }
 }
-

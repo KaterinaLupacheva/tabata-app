@@ -1,30 +1,30 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
-.exercise-button{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 20vw;
-    height: 10vh;
-    margin: 2%;
-    border: 1px solid var(--ramonak-color);
-    border-radius: 10px;
-    background-color: black;
-    cursor: pointer;
-    color: var(--ramonak-color);
+.exercise-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+  height: 10vh;
+  margin: 2%;
+  border: 1px solid var(--ramonak-color);
+  border-radius: 10px;
+  background-color: black;
+  cursor: pointer;
+  color: var(--ramonak-color);
 
-    @include breakpoint {
-        width: 100%;
-        margin: 0;
-    }
+  @include breakpoint {
+    width: 100%;
+    margin: 0;
+  }
 
-    &.pressed{
-        background-color: var(--ramonak-color);
-        color: white;
-    }
+  &.pressed {
+    background-color: var(--ramonak-color);
+    color: white;
+  }
 
-    .exercise-name{
-        font-size: 20px;
-        margin: auto;
-    }
+  .exercise-name {
+    font-size: 20px;
+    margin: auto;
+  }
 }

@@ -1,12 +1,12 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
 .button-group {
-    display: flex;
-    flex-direction: row;
-    width: 80vw;
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
 
-    @include breakpoint {
-        flex-direction: column;
-        align-items: center;
-    }
+  @include breakpoint {
+    flex-direction: column;
+    align-items: center;
+  }
 }

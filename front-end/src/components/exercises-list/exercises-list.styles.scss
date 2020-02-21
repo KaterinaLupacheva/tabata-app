@@ -1,45 +1,45 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
 .exercises-list-container {
-    display: flex;
-    flex-direction: row;
-    height: 50vh;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  height: 50vh;
+  justify-content: space-around;
+
+  @include breakpoint {
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+  }
+
+  .icon-container {
+    margin: auto;
+    visibility: hidden;
+
+    &.visible {
+      visibility: visible;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .exercises-list {
+    width: 50vw;
 
     @include breakpoint {
+      width: 70vw;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      margin: 3% 0;
+
+      @include breakpoint {
         justify-content: center;
-        align-items: center;
-        height: 55vh;
+      }
     }
-
-    .icon-container{
-       margin: auto;    
-       visibility: hidden;
-
-       &.visible{
-            visibility: visible;
-
-            &:hover{
-                cursor: pointer;
-            }
-        }
-    }
-
-    .exercises-list{
-        width: 50vw;
-
-        @include breakpoint {
-            width: 70vw;
-        }
-
-        .row{
-            display: flex;
-            flex-direction: row;
-            margin: 3% 0;
-
-            @include breakpoint {
-                justify-content: center;
-            }
-        }
-    }
+  }
 }

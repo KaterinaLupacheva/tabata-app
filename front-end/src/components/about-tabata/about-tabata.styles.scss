@@ -1,31 +1,31 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
-.about-tabata{
+.about-tabata {
+  width: 100%;
+  border-bottom: 3px solid black;
+  background-color: black;
+
+  .about-tabata-title {
     width: 100%;
-    border-bottom: 3px solid black;
-    background-color: black;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: var(--ramonak-color);
+    text-align: left;
+    padding: 50px 0 20px 50px;
+  }
 
-    .about-tabata-title{
-        width: 100%;
-        font-size: xx-large;
-        font-weight: bolder;
-        color: var(--ramonak-color);
-        text-align: left;
-        padding: 50px 0 20px 50px;
+  .about-tabata-description {
+    text-align: left;
+    font-size: larger;
+    padding-left: 100px;
+    color: white;
+
+    @include breakpoint {
+      padding-left: 20px;
     }
 
-    .about-tabata-description{
-        text-align: left;
-        font-size: larger;
-        padding-left: 100px;
-        color: white;
-
-        @include breakpoint {
-            padding-left: 20px;
-        }
-        
-        li {
-            padding-bottom: 10px;
-        }
+    li {
+      padding-bottom: 10px;
     }
+  }
 }

@@ -1,15 +1,15 @@
-.finished-page{
+.finished-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .buttons {
     display: flex;
     flex-direction: column;
-    align-items: center;
-
-    .buttons{
-        display: flex;
-        flex-direction: column;
-        margin: 70px;
-    }
+    margin: 70px;
+  }
 }
 
-button{
-    margin: 30px;
+button {
+  margin: 30px;
 }

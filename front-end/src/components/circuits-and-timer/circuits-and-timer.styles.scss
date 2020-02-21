@@ -1,12 +1,12 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
 .circuits-and-timer-container {
-    display: flex;
-    flex-direction: row;
-    width: 80vw;
-    height: 20vh;
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+  height: 20vh;
 
-    @include breakpoint {
-        width: 100%;
-    }
+  @include breakpoint {
+    width: 100%;
+  }
 }

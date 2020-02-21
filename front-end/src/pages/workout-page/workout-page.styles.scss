@@ -1,18 +1,20 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
 .workout-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 85vh;
-    width: 80vw;
-    background-image: linear-gradient(to bottom right, black 60%, #E0314B);
-    margin: auto;
-    border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 85vh;
+  width: 80vw;
+  background-image: linear-gradient(to bottom right, black 60%, #e0314b);
+  margin: auto;
+  border-radius: 20px;
 
-    @include breakpoint {
-        width: 100%;
-    }
+  @include breakpoint {
+    width: 100%;
+  }
 }
 
-button:focus {outline:0 !important;}
+button:focus {
+  outline: 0 !important;
+}

@@ -1,30 +1,30 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
-.circuits-page{
-    display: flex;
+.circuits-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-image: linear-gradient(to bottom left, black 60%, #e0314b);
+  height: 85vh;
+  width: 80vw;
+  margin: auto;
+  border-radius: 20px;
+
+  @include breakpoint {
+    width: 100%;
+  }
+
+  .title {
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .button-group {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-image: linear-gradient(to bottom left, black 60%, #E0314B);
-    height: 85vh;
-    width: 80vw;
-    margin: auto;
-    border-radius: 20px;
-
-    @include breakpoint {
-        width: 100%;
-    }
-
-    .title{
-        color:  white;
-        text-transform: uppercase;
-    }
-
-    .button-group{
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        height: 70vh;
-        justify-content: space-evenly;
-    }
+    height: 70vh;
+    justify-content: space-evenly;
+  }
 }
