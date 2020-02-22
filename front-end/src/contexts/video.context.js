@@ -1,15 +1,15 @@
-import React, { createContext } from "react";
+import React, { createContext } from 'react';
 
 export const VideoContext = createContext();
 
 export class VideoContextProvider extends React.Component {
   state = {
-    isPaused: true
+    isPaused: true,
   };
 
   togglePlayVideo = () => {
     this.setState(state => ({
-      isPaused: !state.isPaused
+      isPaused: !state.isPaused,
     }));
   };
 
@@ -18,7 +18,7 @@ export class VideoContextProvider extends React.Component {
       <VideoContext.Provider
         value={{
           state: this.state,
-          update: this.togglePlayVideo
+          update: this.togglePlayVideo,
         }}
       >
         {this.props.children}

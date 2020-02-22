@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import CTAButton from "../../components/cta-button/cta-button.component";
-import CardsOverview from "../../components/cards-overview/cards-overview.component";
-import AboutTabata from "../../components/about-tabata/about-tabata.component";
-import Footer from "../../components/footer/footer.component";
+import CTAButton from '../../components/cta-button/cta-button.component';
+import CardsOverview from '../../components/cards-overview/cards-overview.component';
+import AboutTabata from '../../components/about-tabata/about-tabata.component';
+import Footer from '../../components/footer/footer.component';
 
-import "./landing-page.styles.scss";
+import './landing-page.styles.scss';
 
 const LandingPage = () => (
   <div className="landing-page-container">

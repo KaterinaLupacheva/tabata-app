@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import "./exercise-image.styles.scss";
+import './exercise-image.styles.scss';
 
 const ExerciseImage = ({ link, height }) => (
   <div className="exercise-image" style={{ height: `${height}` }}>

@@ -1,14 +1,9 @@
-import DurationActionTypes from "./duration.types";
-import {
-  createArray,
-  changePressed,
-  findPressedOption,
-  setPressed
-} from "../param.utils";
+import DurationActionTypes from './duration.types';
+import { createArray, changePressed, findPressedOption, setPressed } from '../param.utils';
 
 const INITIAL_STATE = {
   durationOptions: [],
-  selectedDuration: ""
+  selectedDuration: '',
 };
 
 const durationReducer = (state = INITIAL_STATE, action) => {
@@ -17,17 +12,17 @@ const durationReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         durationOptions: createArray(action.payload),
-        selectedDuration: setPressed(action.payload)[0]
+        selectedDuration: setPressed(action.payload)[0],
       };
     case DurationActionTypes.CHANGE_PRESSED_DURATION:
       return {
         ...state,
-        durationOptions: changePressed(state.durationOptions, action.payload)
+        durationOptions: changePressed(state.durationOptions, action.payload),
       };
     case DurationActionTypes.FIND_PRESSED_DURATION:
       return {
         ...state,
-        selectedDuration: findPressedOption(action.payload).split(" ")[0]
+        selectedDuration: findPressedOption(action.payload).split(' ')[0],
       };
     default:
       return state;

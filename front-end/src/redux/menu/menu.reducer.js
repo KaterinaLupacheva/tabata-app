@@ -1,16 +1,16 @@
 const INITIAL_STATE = {
   sections: [
     {
-      title: "Random Workout",
-      linkUrl: "parameters",
-      id: 1
+      title: 'Random Workout',
+      linkUrl: 'parameters',
+      id: 1,
     },
     {
-      title: "Create Workout",
-      linkUrl: "create-workout",
-      id: 2
-    }
-  ]
+      title: 'Create Workout',
+      linkUrl: 'create-workout',
+      id: 2,
+    },
+  ],
 };
 
 const menuReducer = (state = INITIAL_STATE, action) => {

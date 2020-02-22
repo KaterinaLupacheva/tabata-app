@@ -1,20 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import logo from "../../assets/logo.png";
+import logo from '../../assets/logo.png';
 
 // import { auth } from '../../firebase/firebase.utils';
 
-import "./header.styles.scss";
+import './header.styles.scss';
 
 const Header = () => {
   const isInWebAppiOS = window.navigator.standalone === true;
-  const isInWebAppChrome = window.matchMedia("(display-mode: standalone)")
-    .matches;
-  let href = "https://ramonak.io/";
+  const isInWebAppChrome = window.matchMedia('(display-mode: standalone)').matches;
+  let href = 'https://ramonak.io/';
   if (isInWebAppiOS || isInWebAppChrome) {
-    href = "/";
+    href = '/';
   }
   return (
     <div className="header">
@@ -43,7 +42,7 @@ const Header = () => {
 };
 
 const matStateToProps = state => ({
-  currentUser: state.user.currentUser
+  currentUser: state.user.currentUser,
 });
 
 export default connect(matStateToProps)(Header);

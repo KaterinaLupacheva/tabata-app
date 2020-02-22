@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import arrow from "../../assets/arrow.png";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import arrow from '../../assets/arrow.png';
 
-import "./arrow-button.styles.scss";
+import './arrow-button.styles.scss';
 
 const ArrowButton = ({ path }) => (
   <div className="button-container">

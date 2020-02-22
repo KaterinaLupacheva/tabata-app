@@ -1,17 +1,17 @@
-import React from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import {
   fetchCircuits,
   changePressedCircuit,
-  findPressedCircuit
-} from "../../redux/circuit/circuit.actions";
-import { selectCircuitOptions } from "../../redux/circuit/circuit.selectors";
-import "./circuits-page.styles.scss";
-import AbsoluteWrapper from "../../components/absolute-wrapper/absolute-wrapper.component";
-import ButtonGroup from "../../components/button-group/button-group.component";
-import NextButton from "../../components/next-button/next-button.component";
+  findPressedCircuit,
+} from '../../redux/circuit/circuit.actions';
+import { selectCircuitOptions } from '../../redux/circuit/circuit.selectors';
+import './circuits-page.styles.scss';
+import AbsoluteWrapper from '../../components/absolute-wrapper/absolute-wrapper.component';
+import ButtonGroup from '../../components/button-group/button-group.component';
+import NextButton from '../../components/next-button/next-button.component';
 
 class CircuitsPage extends React.Component {
   componentDidMount() {
@@ -31,7 +31,7 @@ class CircuitsPage extends React.Component {
               this.props.findPressedCircuit(this.props.options);
             }}
           />
-          <NextButton path={"/workout"} />
+          <NextButton path={'/workout'} />
         </div>
       </AbsoluteWrapper>
     );
@@ -39,14 +39,13 @@ class CircuitsPage extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  options: selectCircuitOptions
+  options: selectCircuitOptions,
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchCircuits: () => dispatch(fetchCircuits()),
-  changePressedCircuit: pressedOption =>
-    dispatch(changePressedCircuit(pressedOption)),
-  findPressedCircuit: options => dispatch(findPressedCircuit(options))
+  changePressedCircuit: pressedOption => dispatch(changePressedCircuit(pressedOption)),
+  findPressedCircuit: options => dispatch(findPressedCircuit(options)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CircuitsPage);

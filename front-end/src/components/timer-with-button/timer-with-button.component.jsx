@@ -1,43 +1,30 @@
-import React from "react";
-import ReactNoSleep from "react-no-sleep";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import {
-  toggleTimer,
-  toggleTimerColor,
-  toggleButtonTitle
-} from "../../redux/timer/timer.actions";
-import {
-  selectTimerRest,
-  selectButtonTitle
-} from "../../redux/timer/timer.selectors";
+import React from 'react';
+import ReactNoSleep from 'react-no-sleep';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { toggleTimer, toggleTimerColor, toggleButtonTitle } from '../../redux/timer/timer.actions';
+import { selectTimerRest, selectButtonTitle } from '../../redux/timer/timer.selectors';
 import {
   selectWorkoutExercises,
-  selectStartButtonIsActive
-} from "../../redux/workout/workout.selectors";
-import {
-  selectSelectedCircuit,
-  selectCurrentCircuit
-} from "../../redux/circuit/circuit.selectors";
-import {
-  selectAudioStartStatus,
-  selectAudioStopStatus
-} from "../../redux/audio/audio.selectors";
-import { previewNextExercise } from "../../redux/workout/workout.actions";
+  selectStartButtonIsActive,
+} from '../../redux/workout/workout.selectors';
+import { selectSelectedCircuit, selectCurrentCircuit } from '../../redux/circuit/circuit.selectors';
+import { selectAudioStartStatus, selectAudioStopStatus } from '../../redux/audio/audio.selectors';
+import { previewNextExercise } from '../../redux/workout/workout.actions';
 import {
   toggleStart,
   toggleStop,
   togglePausePlayStart,
-  togglePausePlayStop
-} from "../../redux/audio/audio.actions";
-import { incrementCurrentCircuit } from "../../redux/circuit/circuit.actions";
-import { resetToInitialState } from "../../redux/workout/workout.actions";
-import { VideoContextConsumer } from "../../contexts/video.context";
+  togglePausePlayStop,
+} from '../../redux/audio/audio.actions';
+import { incrementCurrentCircuit } from '../../redux/circuit/circuit.actions';
+import { resetToInitialState } from '../../redux/workout/workout.actions';
+import { VideoContextConsumer } from '../../contexts/video.context';
 
-import "./timer-with-button.styles.scss";
+import './timer-with-button.styles.scss';
 
-import CustomButton from "../custom-button/custom-button.component";
-import Timer from "../timer/timer.component";
+import CustomButton from '../custom-button/custom-button.component';
+import Timer from '../timer/timer.component';
 
 class TimerWithButton extends React.Component {
   handleTick = time => {
@@ -49,7 +36,7 @@ class TimerWithButton extends React.Component {
       toggleTimerColor,
       previewNextExercise,
       toggleStop,
-      toggleStart
+      toggleStart,
     } = this.props;
     if (
       time.s === rest &&
@@ -84,7 +71,7 @@ class TimerWithButton extends React.Component {
       incrementCurrentCircuit,
       toggleTimerColor,
       toggleTimer,
-      toggleButtonTitle
+      toggleButtonTitle,
     } = this.props;
     if (workout[workout.length - 1].isActive !== true) {
       toggleTimerColor();
@@ -114,14 +101,11 @@ class TimerWithButton extends React.Component {
       audioStartStatus,
       audioStopStatus,
       togglePausePlayStart,
-      togglePausePlayStop
+      togglePausePlayStop,
     } = this.props;
     context.update();
-    if (
-      currentCircuit === 1 &&
-      workout.find(ex => ex.isActive === true) === undefined
-    ) {
-      if (audioStartStatus === "STOPPED") {
+    if (currentCircuit === 1 && workout.find(ex => ex.isActive === true) === undefined) {
+      if (audioStartStatus === 'STOPPED') {
         toggleStart();
       } else {
         togglePausePlayStart();
@@ -131,10 +115,10 @@ class TimerWithButton extends React.Component {
     } else {
       toggleTimer();
       toggleButtonTitle();
-      if (audioStartStatus !== "STOPPED") {
+      if (audioStartStatus !== 'STOPPED') {
         togglePausePlayStart();
       }
-      if (audioStopStatus !== "STOPPED") {
+      if (audioStopStatus !== 'STOPPED') {
         togglePausePlayStop();
       }
     }
@@ -178,21 +162,20 @@ const mapStateToProps = createStructuredSelector({
   currentCircuit: selectCurrentCircuit,
   startButtonIsActive: selectStartButtonIsActive,
   audioStartStatus: selectAudioStartStatus,
-  audioStopStatus: selectAudioStopStatus
+  audioStopStatus: selectAudioStopStatus,
 });
 
 const mapDispatchToProps = dispatch => ({
   toggleTimer: () => dispatch(toggleTimer()),
   toggleTimerColor: () => dispatch(toggleTimerColor()),
-  previewNextExercise: workoutExercises =>
-    dispatch(previewNextExercise(workoutExercises)),
+  previewNextExercise: workoutExercises => dispatch(previewNextExercise(workoutExercises)),
   toggleStart: () => dispatch(toggleStart()),
   toggleStop: () => dispatch(toggleStop()),
   incrementCurrentCircuit: () => dispatch(incrementCurrentCircuit()),
   resetToInitialState: () => dispatch(resetToInitialState()),
   toggleButtonTitle: () => dispatch(toggleButtonTitle()),
   togglePausePlayStop: () => dispatch(togglePausePlayStop()),
-  togglePausePlayStart: () => dispatch(togglePausePlayStart())
+  togglePausePlayStart: () => dispatch(togglePausePlayStart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TimerWithButton);

@@ -1,32 +1,21 @@
-import React from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import {
   selectExercisesForPreview,
   selectNumOfShowingEx,
-  selectIndexOfFirstShowingEx
-} from "../../redux/exercises/exercises.selectors";
-import {
-  showNextExercises,
-  showPrevExercises
-} from "../../redux/exercises/exercises.actions";
-import { selectWorkoutExercises } from "../../redux/workout/workout.selectors";
-import ArrowLeftIcon from "../../components/icons/arrow-left.component";
-import ArrowRightIcon from "../../components/icons/arrow-right.component";
+  selectIndexOfFirstShowingEx,
+} from '../../redux/exercises/exercises.selectors';
+import { showNextExercises, showPrevExercises } from '../../redux/exercises/exercises.actions';
+import { selectWorkoutExercises } from '../../redux/workout/workout.selectors';
+import ArrowLeftIcon from '../../components/icons/arrow-left.component';
+import ArrowRightIcon from '../../components/icons/arrow-right.component';
 
-import "./exercises-list.styles.scss";
-import ExerciseButton from "../exercise-button/exercise-button.component";
+import './exercises-list.styles.scss';
+import ExerciseButton from '../exercise-button/exercise-button.component';
 
-const countExercisesToShow = (
-  exercises,
-  indexOfFirstEx,
-  numOfShowingEx,
-  workout
-) => {
-  const exercisesToShow = exercises.slice(
-    indexOfFirstEx,
-    indexOfFirstEx + numOfShowingEx
-  );
+const countExercisesToShow = (exercises, indexOfFirstEx, numOfShowingEx, workout) => {
+  const exercisesToShow = exercises.slice(indexOfFirstEx, indexOfFirstEx + numOfShowingEx);
   const exercisesWithPressed = checkPressed(exercisesToShow, workout);
   let rows = [];
   while (exercisesWithPressed.length > 0) {
@@ -50,21 +39,14 @@ const ExercisesList = ({
   numOfShowingEx,
   showNextExercises,
   showPrevExercises,
-  workout
+  workout,
 }) => {
-  const rows = countExercisesToShow(
-    exercises,
-    indexOfFirstEx,
-    numOfShowingEx,
-    workout
-  );
+  const rows = countExercisesToShow(exercises, indexOfFirstEx, numOfShowingEx, workout);
   if (window.screen.availWidth > 800) {
     return (
       <div className="exercises-list-container">
         <div
-          className={`${
-            indexOfFirstEx - numOfShowingEx >= 0 ? "visible" : ""
-          } icon-container`}
+          className={`${indexOfFirstEx - numOfShowingEx >= 0 ? 'visible' : ''} icon-container`}
           onClick={() => showPrevExercises()}
         >
           <ArrowLeftIcon />
@@ -80,7 +62,7 @@ const ExercisesList = ({
         </div>
         <div
           className={`${
-            indexOfFirstEx + numOfShowingEx < exercises.length ? "visible" : ""
+            indexOfFirstEx + numOfShowingEx < exercises.length ? 'visible' : ''
           } icon-container`}
           onClick={() => showNextExercises()}
         >
@@ -105,12 +87,12 @@ const mapStateToProps = createStructuredSelector({
   exercises: selectExercisesForPreview,
   numOfShowingEx: selectNumOfShowingEx,
   indexOfFirstEx: selectIndexOfFirstShowingEx,
-  workout: selectWorkoutExercises
+  workout: selectWorkoutExercises,
 });
 
 const mapDispatchToProps = dispatch => ({
   showNextExercises: () => dispatch(showNextExercises()),
-  showPrevExercises: () => dispatch(showPrevExercises())
+  showPrevExercises: () => dispatch(showPrevExercises()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExercisesList);

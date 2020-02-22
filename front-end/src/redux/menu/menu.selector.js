@@ -1,8 +1,5 @@
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect';
 
 const selectMenu = state => state.menu;
 
-export const selectMenuSections = createSelector(
-  [selectMenu],
-  menu => menu.sections
-);
+export const selectMenuSections = createSelector([selectMenu], menu => menu.sections);

@@ -1,5 +1,5 @@
-import React from "react";
-import Sound from "react-sound";
+import React from 'react';
+import Sound from 'react-sound';
 
 const Audio = ({ audioFile, status, onFinishedPlaying }) => (
   <div className="play-sound">

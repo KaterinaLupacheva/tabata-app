@@ -1,15 +1,15 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/auth";
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
 
 const config = {
-  apiKey: "AIzaSyCj3LS1Su_hvEK8ZMXn6J0rhk-0BlfxbWc",
-  authDomain: "tabata-beff3.firebaseapp.com",
-  databaseURL: "https://tabata-beff3.firebaseio.com",
-  projectId: "tabata-beff3",
-  storageBucket: "tabata-beff3.appspot.com",
-  messagingSenderId: "398944675890",
-  appId: "1:398944675890:web:ca6693141156cd1da1b42b"
+  apiKey: 'AIzaSyCj3LS1Su_hvEK8ZMXn6J0rhk-0BlfxbWc',
+  authDomain: 'tabata-beff3.firebaseapp.com',
+  databaseURL: 'https://tabata-beff3.firebaseio.com',
+  projectId: 'tabata-beff3',
+  storageBucket: 'tabata-beff3.appspot.com',
+  messagingSenderId: '398944675890',
+  appId: '1:398944675890:web:ca6693141156cd1da1b42b',
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -27,10 +27,10 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         displayName,
         email,
         createdAt,
-        ...additionalData
+        ...additionalData,
       });
     } catch (error) {
-      console.log("error creating user", error.message);
+      console.log('error creating user', error.message);
     }
   }
   return userRef;
@@ -42,7 +42,7 @@ export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
 const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: "select_account" });
+provider.setCustomParameters({ prompt: 'select_account' });
 
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 

@@ -1,13 +1,13 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
-import "./finished-page.styles.scss";
-import AbsoluteWrapper from "../../components/absolute-wrapper/absolute-wrapper.component";
-import CustomButtom from "../../components/custom-button/custom-button.component";
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import './finished-page.styles.scss';
+import AbsoluteWrapper from '../../components/absolute-wrapper/absolute-wrapper.component';
+import CustomButtom from '../../components/custom-button/custom-button.component';
 
 const FinishedPage = ({ history }) => {
   const repeatWorkout = () =>
     history.push({
-      pathname: "/workout"
+      pathname: '/workout',
     });
 
   return (

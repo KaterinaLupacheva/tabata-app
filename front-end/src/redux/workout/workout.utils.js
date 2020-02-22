@@ -1,7 +1,5 @@
 export const toggleExerciseInWorkout = (workoutExercises, exerciseToToggle) => {
-  const existingExercise = workoutExercises.find(
-    exercise => exercise.id === exerciseToToggle.id
-  );
+  const existingExercise = workoutExercises.find(exercise => exercise.id === exerciseToToggle.id);
   if (existingExercise) {
     return workoutExercises.filter(el => el.id !== existingExercise.id);
   }
@@ -16,7 +14,7 @@ export const setActiveExercise = exercises => {
       activeIndex = i;
       return {
         ...el,
-        isActive: false
+        isActive: false,
       };
     }
     return el;
@@ -25,7 +23,7 @@ export const setActiveExercise = exercises => {
     if (i === activeIndex + 1) {
       return {
         ...el,
-        isActive: true
+        isActive: true,
       };
     }
     return el;
@@ -59,7 +57,7 @@ export const resetToInitialState = exercises => {
     if (el.isActive === true) {
       return {
         ...el,
-        isActive: false
+        isActive: false,
       };
     }
     return el;

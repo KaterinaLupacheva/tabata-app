@@ -5,7 +5,7 @@ export const createArray = data => {
       id: i,
       value: `option${i + 1}`,
       name: data[i],
-      isPressed: i === 0 ? true : false
+      isPressed: i === 0 ? true : false,
     });
   }
   return result;

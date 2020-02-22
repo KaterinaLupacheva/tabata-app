@@ -1,39 +1,33 @@
-import React, { useContext } from "react";
-import {
-  Route,
-  Switch,
-  Redirect,
-  withRouter,
-  __RouterContext
-} from "react-router-dom";
-import { useTransition, animated } from "react-spring";
-import { connect } from "react-redux";
-import { setCurrentUser } from "./redux/user/user.actions";
-import "./App.css";
+import React, { useContext } from 'react';
+import { Route, Switch, Redirect, withRouter, __RouterContext } from 'react-router-dom';
+import { useTransition, animated } from 'react-spring';
+import { connect } from 'react-redux';
+import { setCurrentUser } from './redux/user/user.actions';
+import './App.css';
 
-import LandingPage from "./pages/landing-page/landing-page.component";
-import StartPage from "./pages/startpage/startpage.component";
-import WorkoutPage from "./pages/workout-page/workout-page.component";
-import CreateWorkoutPage from "./pages/create-workout-page/create-workout-page.component";
-import ParametersPage from "./pages/parameters-page/parameters-page.component";
-import FinishedPage from "./pages/finished-page/finished-page.component";
-import CircuitsPage from "./pages/circuits-page/circuits-page.component";
-import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
-import Header from "./components/header/header.component";
-import { WithWeightsContextProvider } from "./contexts/with-weights.context";
-import { VideoContextProvider } from "./contexts/video.context";
+import LandingPage from './pages/landing-page/landing-page.component';
+import StartPage from './pages/startpage/startpage.component';
+import WorkoutPage from './pages/workout-page/workout-page.component';
+import CreateWorkoutPage from './pages/create-workout-page/create-workout-page.component';
+import ParametersPage from './pages/parameters-page/parameters-page.component';
+import FinishedPage from './pages/finished-page/finished-page.component';
+import CircuitsPage from './pages/circuits-page/circuits-page.component';
+import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
+import Header from './components/header/header.component';
+import { WithWeightsContextProvider } from './contexts/with-weights.context';
+import { VideoContextProvider } from './contexts/video.context';
 
 const App = () => {
   const { location } = useContext(__RouterContext);
   const transitions = useTransition(location, location => location.pathname, {
-    from: { opacity: 0, transform: "translate3d(100%,0,-50%)" },
-    enter: { opacity: 1, transform: "translate3d(0%,0,-50%)" },
-    leave: { opacity: 0, transform: "translate3d(-50%,0,-50%)" }
+    from: { opacity: 0, transform: 'translate3d(100%,0,-50%)' },
+    enter: { opacity: 1, transform: 'translate3d(0%,0,-50%)' },
+    leave: { opacity: 0, transform: 'translate3d(-50%,0,-50%)' },
   });
 
   return (
     <div className="container">
-      {location.pathname !== "/about" ? <Header /> : null}
+      {location.pathname !== '/about' ? <Header /> : null}
 
       {transitions.map(({ item, props, key }) => (
         <animated.div key={key} style={props}>
@@ -47,11 +41,7 @@ const App = () => {
               exact
               path="/signin"
               render={() =>
-                this.props.currentUser ? (
-                  <Redirect to="/" />
-                ) : (
-                  <SignInAndSignUpPage />
-                )
+                this.props.currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
               }
             />
             <WithWeightsContextProvider>
@@ -68,11 +58,11 @@ const App = () => {
 };
 
 const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser
+  currentUser: user.currentUser,
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));

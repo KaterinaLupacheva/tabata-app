@@ -1,4 +1,4 @@
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect';
 
 const selectWorkout = state => state.workout;
 
@@ -7,10 +7,7 @@ export const selectWorkoutExercises = createSelector(
   workout => workout.workoutExercises
 );
 
-export const selectIsImage = createSelector(
-  [selectWorkout],
-  workout => workout.isImage
-);
+export const selectIsImage = createSelector([selectWorkout], workout => workout.isImage);
 
 export const selectNextExerciseName = createSelector(
   [selectWorkout],
@@ -27,9 +24,8 @@ export const selectIsWorkoutFetching = createSelector(
   workout => workout.isFetching
 );
 
-export const selectActiveExercise = createSelector(
-  [selectWorkoutExercises],
-  exercises => exercises.find(ex => ex.isActive === true)
+export const selectActiveExercise = createSelector([selectWorkoutExercises], exercises =>
+  exercises.find(ex => ex.isActive === true)
 );
 
 export const selectNextExerciseLink = createSelector(

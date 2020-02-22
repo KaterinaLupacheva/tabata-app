@@ -1,8 +1,8 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext } from 'react';
 
 export const WithWeightsContext = createContext({
   checked: null,
-  toggleChecked: () => {}
+  toggleChecked: () => {},
 });
 
 export const WithWeightsContextProvider = props => {
@@ -12,14 +12,10 @@ export const WithWeightsContextProvider = props => {
 
   const initialState = {
     checked: false,
-    toggleChecked: toggleChecked
+    toggleChecked: toggleChecked,
   };
 
   const [state, setState] = useState(initialState);
 
-  return (
-    <WithWeightsContext.Provider value={state}>
-      {props.children}
-    </WithWeightsContext.Provider>
-  );
+  return <WithWeightsContext.Provider value={state}>{props.children}</WithWeightsContext.Provider>;
 };

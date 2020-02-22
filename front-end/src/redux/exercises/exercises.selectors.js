@@ -1,4 +1,4 @@
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect';
 
 const selectRootExercises = state => state.exercises;
 
@@ -7,10 +7,8 @@ export const selectExercises = createSelector(
   exercises => exercises.currentExercises
 );
 
-export const selectExercisesForPreview = createSelector(
-  [selectExercises],
-  exercises =>
-    exercises ? Object.keys(exercises).map(key => exercises[key]) : []
+export const selectExercisesForPreview = createSelector([selectExercises], exercises =>
+  exercises ? Object.keys(exercises).map(key => exercises[key]) : []
 );
 
 export const selectIsExercisesFetching = createSelector(

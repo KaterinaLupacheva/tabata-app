@@ -1,23 +1,23 @@
-import ExercisesActionTypes from "./exercises.types";
-import { path } from "../../pages/url";
+import ExercisesActionTypes from './exercises.types';
+import { path } from '../../pages/url';
 
 export const toggleButtonPressed = exercise => ({
   type: ExercisesActionTypes.TOGGLE_BUTTON_PRESSED,
-  payload: exercise
+  payload: exercise,
 });
 
 export const fetchExercisesStart = () => ({
-  type: ExercisesActionTypes.FETCH_EXERCISES_START
+  type: ExercisesActionTypes.FETCH_EXERCISES_START,
 });
 
 export const fetchExercisesSuccess = currentExercises => ({
   type: ExercisesActionTypes.FETCH_EXERCISES_SUCCESS,
-  payload: currentExercises
+  payload: currentExercises,
 });
 
 export const fetchExercisesFailure = errorMessage => ({
   type: ExercisesActionTypes.FETCH_EXERCISES_FAILURE,
-  payload: errorMessage
+  payload: errorMessage,
 });
 
 export const fetchExercisesStartAsync = muscleGroup => {
@@ -29,7 +29,7 @@ export const fetchExercisesStartAsync = muscleGroup => {
       .then(exercises => {
         const newExercises = exercises.map(obj => ({
           ...obj,
-          isPressed: false
+          isPressed: false,
         }));
         dispatch(fetchExercisesSuccess(newExercises));
       })
@@ -38,9 +38,9 @@ export const fetchExercisesStartAsync = muscleGroup => {
 };
 
 export const showNextExercises = () => ({
-  type: ExercisesActionTypes.SHOW_NEXT_EXERCISES
+  type: ExercisesActionTypes.SHOW_NEXT_EXERCISES,
 });
 
 export const showPrevExercises = () => ({
-  type: ExercisesActionTypes.SHOW_PREV_EXERCISES
+  type: ExercisesActionTypes.SHOW_PREV_EXERCISES,
 });

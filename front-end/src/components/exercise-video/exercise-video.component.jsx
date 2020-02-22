@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from "react";
-import { VideoContext } from "../../contexts/video.context";
-import { useSpring, animated } from "react-spring";
+import React, { useContext, useEffect } from 'react';
+import { VideoContext } from '../../contexts/video.context';
+import { useSpring, animated } from 'react-spring';
 
-import "./exercise-video.styles.scss";
+import './exercise-video.styles.scss';
 
 const ExerciseVideo = ({ link, height }) => {
   const vidContext = useContext(VideoContext);
@@ -17,7 +17,7 @@ const ExerciseVideo = ({ link, height }) => {
     }
   });
 
-  const props = useSpring({ height: `${height}`, from: { height: "0%" } });
+  const props = useSpring({ height: `${height}`, from: { height: '0%' } });
 
   return (
     <animated.video

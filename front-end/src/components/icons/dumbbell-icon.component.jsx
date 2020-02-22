@@ -1,19 +1,14 @@
-import React, { useContext } from "react";
-import image1 from "../../assets/dumbbell-filled-ramonak.png";
-import { ReactComponent as Dumbbell } from "../../assets/dumbbell.svg";
-import { WithWeightsContext } from "../../contexts/with-weights.context";
+import React, { useContext } from 'react';
+import image1 from '../../assets/dumbbell-filled-ramonak.png';
+import { ReactComponent as Dumbbell } from '../../assets/dumbbell.svg';
+import { WithWeightsContext } from '../../contexts/with-weights.context';
 
-import "./dumbbell-icon.styles.scss";
+import './dumbbell-icon.styles.scss';
 
 const DumbbellIcon = ({ size, isClicked }) => {
   const state = useContext(WithWeightsContext);
   return isClicked ? (
-    <img
-      src={image1}
-      alt="dumbbell"
-      style={{ width: `${size}` }}
-      className="dumbbell-icon"
-    />
+    <img src={image1} alt="dumbbell" style={{ width: `${size}` }} className="dumbbell-icon" />
   ) : state.checked ? (
     <img
       src={image1}
