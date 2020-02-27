@@ -1,23 +1,23 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
 .circuit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 30vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 30vw;
 
-    @include breakpoint {
-        display: none;
-    }
+  @include breakpoint {
+    display: none;
+  }
 
-    .circle {
-        border-radius: 50%;
-        border: 5px solid red;
-        width: 60px;
-        height: 60px;
-        color: var(--ramonak-color);
-        font-size: 48px;
-        padding-left: 10px;
-    }
+  .circle {
+    border-radius: 50%;
+    border: 5px solid red;
+    width: 60px;
+    height: 60px;
+    color: var(--ramonak-color);
+    font-size: 48px;
+    padding-left: 10px;
+  }
 }

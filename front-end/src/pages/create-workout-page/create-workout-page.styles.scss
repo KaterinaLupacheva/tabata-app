@@ -1,47 +1,47 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
 .create-workout-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-image: linear-gradient(to bottom left, black 60%, #E0314B);
-    height: 85vh;
-    width: 80vw;
-    margin: auto;
-    border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-image: linear-gradient(to bottom left, black 60%, #e0314b);
+  height: 85vh;
+  width: 80vw;
+  margin: auto;
+  border-radius: 20px;
+
+  @include breakpoint {
+    overflow: auto;
+    width: 100%;
+  }
+
+  .chose-exercises {
+    font-size: 30px;
+    color: white;
+    margin: 10px 0;
+    text-transform: uppercase;
+  }
+
+  .button-group-container {
+    border-bottom: 3px solid var(--ramonak-color);
 
     @include breakpoint {
-        overflow: auto;
-        width: 100%;
+      display: none;
     }
+  }
 
-    .chose-exercises{
-        font-size: 30px;
-        color: white;
-        margin: 10px 0;
-        text-transform: uppercase;
+  .exercises-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @include breakpoint {
+      overflow: auto;
+      height: 100%;
+      justify-content: unset;
+      padding: 0 2vw;
     }
-
-    .button-group-container {
-        border-bottom: 3px solid var(--ramonak-color);
-
-        @include breakpoint {
-            display: none;
-        }
-    }
-
-    .exercises-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        
-        @include breakpoint {
-            overflow: auto;
-            height: 100%;
-            justify-content: unset;
-            padding: 0 2vw;
-        }
-    }
+  }
 }

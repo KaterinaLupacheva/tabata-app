@@ -1,11 +1,17 @@
+@import "../../assets/scss/mixins.scss";
+
 .timer {
-    font-size: 50px;
-    border: 1.5px solid var(--ramonak-color);
-    border-radius: 10px;
-    width: 150px;
-    height: 10vh;
-    text-align: center;
-    vertical-align: middle;
-    background-color: black;
-    line-height: 10vh;
+  font-size: 10vh;
+  border: 1.5px solid var(--ramonak-color);
+  border-radius: 10px;
+  width: 150px;
+  min-height: 10vh;
+  text-align: center;
+  vertical-align: middle;
+  background-color: black;
+  line-height: 10vh;
+
+  @include breakpoint {
+    width: 35vw;
+  }
 }

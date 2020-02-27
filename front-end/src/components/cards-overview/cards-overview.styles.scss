@@ -1,21 +1,20 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
-.cards-overview{
-    width: 100%;
+.cards-overview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3px solid black;
+
+  .cards-container {
     display: flex;
-    flex-direction: column;
-    border-bottom: 3px solid black;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 50px;
 
-    .cards-container{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        padding-bottom: 50px;
-
-        @include breakpoint {
-            flex-direction: column;
-            align-items: center;
-        }
+    @include breakpoint {
+      flex-direction: column;
+      align-items: center;
     }
+  }
 }
-

@@ -1,19 +1,19 @@
-.cta-button{
-    min-width: 200px;
-    height: 50px;
-    background-color: var(--ramonak-color);
-    color: white;
-    font-size: 24px;
-    text-transform: uppercase;
-    font-weight: bolder;
-    border: 1.5px solid var(--ramonak-color);
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 50px;
-    transition: background-color .5s;
+.cta-button {
+  min-width: 200px;
+  height: 50px;
+  background-color: var(--ramonak-color);
+  color: white;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border: 1.5px solid var(--ramonak-color);
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 50px;
+  transition: background-color 0.5s;
 
-    &:hover {
-        background-color: white;
-        color: var(--ramonak-color);
-    }
+  &:hover {
+    background-color: white;
+    color: var(--ramonak-color);
+  }
 }

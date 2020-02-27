@@ -11,13 +11,13 @@ import durationReducer from './duration/duration.reducer';
 import muscleGroupReducer from './muscle-group/muscle-group.reducer';
 
 export default combineReducers({
-    user: userReducer,
-    exercises: exercisesReducer,
-    menu: menuReducer,
-    workout: workoutReducer,
-    circuit: circuitReducer,
-    timer: timerReducer,
-    audio: audioReducer,
-    duration: durationReducer,
-    muscleGroup: muscleGroupReducer
+  user: userReducer,
+  exercises: exercisesReducer,
+  menu: menuReducer,
+  workout: workoutReducer,
+  circuit: circuitReducer,
+  timer: timerReducer,
+  audio: audioReducer,
+  duration: durationReducer,
+  muscleGroup: muscleGroupReducer,
 });

@@ -1,17 +1,17 @@
 .next-exercise {
-    visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    // padding-top: 10%;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  // padding-top: 10%;
 
-    &.visible {
-        visibility: visible;
-        text-align: center;
-        font-size: 24px;
-        color: white;
-    }
+  &.visible {
+    visibility: visible;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+  }
 
-    .name {
-        margin: 10px;
-    }
+  .name {
+    margin: 10px;
+  }
 }

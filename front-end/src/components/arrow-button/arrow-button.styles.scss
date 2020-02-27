@@ -1,21 +1,21 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
-.button-container{
-    width: 10vw;
-    height: 10vh;
-    display: flex;
-    margin-left: auto;
-    justify-content: flex-end;
-    align-items: center;
-    transition: all 1s;
+.button-container {
+  width: 10vw;
+  height: 10vh;
+  display: flex;
+  margin-left: auto;
+  justify-content: flex-end;
+  align-items: center;
+  transition: all 1s;
 
-    @include breakpoint {
-        margin-bottom: 50px;
-    }
+  @include breakpoint {
+    margin-bottom: 50px;
+  }
 }
 
-img{
-    margin: 0 3vh 0 0;
-    max-width: 100%;
-    max-height: 100%;
+img {
+  margin: 0 3vh 0 0;
+  max-width: 100%;
+  max-height: 100%;
 }

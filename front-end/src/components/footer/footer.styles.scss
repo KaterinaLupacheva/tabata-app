@@ -1,23 +1,23 @@
-@import '../../assets/scss/mixins.scss';
+@import "../../assets/scss/mixins.scss";
 
-.footer{
-    width: 100%;
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  @include breakpoint {
+    flex-direction: column;
+  }
+
+  .footer-text {
+    font-size: x-large;
+    font-weight: bold;
+  }
+
+  .footer-icons {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    @include breakpoint {
-        flex-direction: column;
-    }
-
-    .footer-text{
-        font-size: x-large;
-        font-weight: bold;
-    }
-
-    .footer-icons{
-        display: flex;
-        flex-direction: row;
-    }
+  }
 }

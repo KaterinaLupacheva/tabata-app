@@ -1,7 +1,7 @@
-@import 'variables';
+@import "variables";
 
 @mixin breakpoint {
-    @media (max-width: #{$screen-breakpoint}) {
-        @content;
-    }
+  @media (max-width: #{$screen-breakpoint}) {
+    @content;
+  }
 }
