@@ -17,6 +17,9 @@
   @include breakpoint {
     width: 55vw;
     margin: 0;
+    font-size: unset;
+    letter-spacing: unset;
+    line-height: unset;
   }
 
   &:hover {
