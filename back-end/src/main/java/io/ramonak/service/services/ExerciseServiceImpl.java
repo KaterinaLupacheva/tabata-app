@@ -72,12 +72,30 @@ public class ExerciseServiceImpl implements ExerciseService {
                 getRandomCardioExercises(numOfExercises - eightyPercent, randomIds);
 
         // combine two arrays
-        List<ExerciseDTO> result = Stream.concat(randomExercises.stream(), randomCardioExercises.stream())
+        List<ExerciseDTO> tempResult = Stream.concat(randomExercises.stream(), randomCardioExercises.stream())
                 .collect(Collectors.toList());
 
         // shuffle result array
-        Collections.shuffle(result);
-        return result;
+        Collections.shuffle(tempResult);
+
+        //set first two cardio exercises
+        return setFirstTwoExercisesCardio(tempResult);
+    }
+
+    private List<ExerciseDTO> setFirstTwoExercisesCardio(List<ExerciseDTO> tempResult) {
+        for(int i=0; i<2; i++) {
+            if (!tempResult.get(i).getMuscleGroupName().equals("cardio")) {
+                //find first cardio
+                ExerciseDTO cardio = tempResult.stream()
+                        .filter(exerciseDTO -> exerciseDTO.getMuscleGroupName()
+                                .equals("cardio") && tempResult.indexOf(exerciseDTO) != 0)
+                        .findAny()
+                        .orElse(null);
+                //swap with first/second ex
+                Collections.swap(tempResult, i, tempResult.indexOf(cardio));
+            }
+        }
+        return tempResult;
     }
 
     private List<ExerciseDTO> getExercises(Integer numOfExercises, List<Long> allIds) {
