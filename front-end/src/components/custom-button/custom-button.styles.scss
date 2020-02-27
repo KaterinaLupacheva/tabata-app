@@ -15,6 +15,7 @@
   margin: 0 35px;
 
   @include breakpoint {
+    width: 55vw;
     margin: 0;
   }
 

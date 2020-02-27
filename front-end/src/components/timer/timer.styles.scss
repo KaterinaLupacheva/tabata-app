@@ -1,3 +1,5 @@
+@import "../../assets/scss/mixins.scss";
+
 .timer {
   font-size: 10vh;
   border: 1.5px solid var(--ramonak-color);
@@ -8,4 +10,8 @@
   vertical-align: middle;
   background-color: black;
   line-height: 10vh;
+
+  @include breakpoint {
+    width: 35vw;
+  }
 }
