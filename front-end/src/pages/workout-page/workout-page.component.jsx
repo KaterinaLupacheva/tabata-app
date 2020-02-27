@@ -26,7 +26,8 @@ import CircuitsAndTimer from '../../components/circuits-and-timer/circuits-and-t
 import soundfileStop from '../../assets/3-2-1-stop.mp3';
 import soundfileStart from '../../assets/1-2-3-start.mp3';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
-import { WithWeightsContext } from '../../contexts/with-weights.context';
+import WithWeightsContext from '../../contexts/with-weights.context';
+import { VideoContextProvider } from '../../contexts/video.context';
 
 const ExercisesPreviewWithSpinner = WithSpinner(ExercisesPreview);
 
@@ -79,11 +80,13 @@ class WorkoutPage extends React.Component {
     return (
       <AbsoluteWrapper>
         <div className="workout-page">
-          <CircuitsAndTimer handleCompleteTimer={this.handleCompleteTimer} />
-          <ExercisesPreviewWithSpinner
-            isLoading={isWorkoutFetching}
-            showGetReady={this.state.showGetReady}
-          />
+          <VideoContextProvider>
+            <CircuitsAndTimer handleCompleteTimer={this.handleCompleteTimer} />
+            <ExercisesPreviewWithSpinner
+              isLoading={isWorkoutFetching}
+              showGetReady={this.state.showGetReady}
+            />
+          </VideoContextProvider>
           <PlaySound
             audioFile={soundfileStop}
             status={audioStatusStop}

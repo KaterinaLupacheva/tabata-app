@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import image1 from '../../assets/dumbbell-filled-ramonak.png';
 import { ReactComponent as Dumbbell } from '../../assets/dumbbell.svg';
-import { WithWeightsContext } from '../../contexts/with-weights.context';
+import WithWeightsContext from '../../contexts/with-weights.context';
 
 import './dumbbell-icon.styles.scss';
 
