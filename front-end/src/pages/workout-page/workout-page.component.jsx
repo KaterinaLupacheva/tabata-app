@@ -7,6 +7,7 @@ import { selectWorkoutExercises } from '../../redux/workout/workout.selectors';
 import {
   fetchRandomWorkoutStartAsync,
   resetToInitialState,
+  resetNextExercise,
 } from '../../redux/workout/workout.actions';
 import { selectIsWorkoutFetching } from '../../redux/workout/workout.selectors';
 import { selectAudioStartStatus, selectAudioStopStatus } from '../../redux/audio/audio.selectors';
@@ -46,9 +47,11 @@ class WorkoutPage extends React.Component {
       selectedDuration,
       selectedMuscleGroup,
       resetCurrentCircuit,
+      resetNextExercise,
     } = this.props;
     resetToInitialState();
     resetCurrentCircuit();
+    resetNextExercise();
     if (workout.length === 0 && selectedDuration.length !== 0 && selectedMuscleGroup !== 0) {
       fetchRandomWorkoutStartAsync(selectedDuration * 2, selectedMuscleGroup, this.state.checked);
     } else if (workout.length === 0) {
@@ -124,6 +127,7 @@ const mapDispatchToProps = dispatch => ({
   toggleTimer: () => dispatch(toggleTimer()),
   resetToInitialState: () => dispatch(resetToInitialState()),
   resetCurrentCircuit: () => dispatch(resetCurrentCircuit()),
+  resetNextExercise: () => dispatch(resetNextExercise()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WorkoutPage);

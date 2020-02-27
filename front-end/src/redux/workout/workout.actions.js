@@ -51,3 +51,7 @@ export const previewNextExercise = workoutExercises => ({
   type: WorkoutActionTypes.PREVIEW_NEXT_EXERCISE,
   payload: workoutExercises,
 });
+
+export const resetNextExercise = () => ({
+  type: WorkoutActionTypes.RESET_NEXT_EXERCISE,
+});

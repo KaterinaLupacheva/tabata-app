@@ -83,7 +83,6 @@ class TimerWithButton extends React.Component {
       resetToInitialState();
       toggleButtonTitle();
       incrementCurrentCircuit();
-      toggleTimerColor();
       toggleTimer();
     } else {
       this.props.handleCompleteTimer();

@@ -53,8 +53,6 @@ const workoutReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         workoutExercises: resetToInitialState(state.workoutExercises),
-        nextExerciseName: '',
-        nextExerciseLink: '',
         isImage: true,
       };
     case WorkoutActionTypes.PREVIEW_NEXT_EXERCISE:
@@ -63,6 +61,12 @@ const workoutReducer = (state = INITIAL_STATE, action) => {
         nextExerciseName: getNextExerciseName(action.payload),
         nextExerciseLink: getNextExerciseLink(action.payload),
         isImage: false,
+      };
+    case WorkoutActionTypes.RESET_NEXT_EXERCISE:
+      return {
+        ...state,
+        nextExerciseName: '',
+        nextExerciseLink: '',
       };
     case 'RESET':
       return INITIAL_STATE;
