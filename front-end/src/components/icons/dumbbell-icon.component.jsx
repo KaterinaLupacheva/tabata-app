@@ -3,28 +3,26 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectIsWithWeights } from '../../redux/workout/workout.selectors';
 import { toggleWeights } from '../../redux/workout/workout.actions';
-import image1 from '../../assets/dumbbell-filled-ramonak.png';
-import { ReactComponent as Dumbbell } from '../../assets/dumbbell.svg';
+import { FaDumbbell } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
 
 import './dumbbell-icon.styles.scss';
 
 const DumbbellIcon = ({ size, isClicked, isWithWeights, toggleWeights }) => {
   return isClicked ? (
-    <img src={image1} alt="dumbbell" style={{ width: `${size}` }} className="dumbbell-icon" />
-  ) : isWithWeights ? (
-    <img
-      src={image1}
-      alt="dumbbell"
-      style={{ width: `${size}` }}
-      className="dumbbell-icon"
-      onClick={() => toggleWeights()}
-    />
+    <IconContext.Provider value={{ color: '#E0314B', size: `${size}` }}>
+      <FaDumbbell />
+    </IconContext.Provider>
   ) : (
-    <Dumbbell
-      style={{ width: `${size}` }}
-      className="dumbbell-empty"
-      onClick={() => toggleWeights()}
-    />
+    <IconContext.Provider
+      value={{
+        color: `${isWithWeights ? `#E0314B` : `white`}`,
+        size: `${size}`,
+        className: 'dumbbell-icon',
+      }}
+    >
+      <FaDumbbell onClick={() => toggleWeights()} />
+    </IconContext.Provider>
   );
 };
 

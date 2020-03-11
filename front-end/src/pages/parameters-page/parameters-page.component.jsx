@@ -88,7 +88,7 @@ class ParametersPage extends React.Component {
               }}
             />
             <div className="icon-with-text">
-              <DumbbellIcon size={'8vh'} />
+              <DumbbellIcon size={'2em'} />
               <div className="with-weights-text">{'With Weights'}</div>
             </div>
           </div>
