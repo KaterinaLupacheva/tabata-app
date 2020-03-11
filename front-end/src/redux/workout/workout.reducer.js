@@ -15,6 +15,7 @@ const INITIAL_STATE = {
   isImage: true,
   startButtonIsActive: false,
   nextExerciseLink: '',
+  isWithWeights: false,
 };
 
 const workoutReducer = (state = INITIAL_STATE, action) => {
@@ -67,6 +68,11 @@ const workoutReducer = (state = INITIAL_STATE, action) => {
         ...state,
         nextExerciseName: '',
         nextExerciseLink: '',
+      };
+    case WorkoutActionTypes.TOGGLE_WEIGHTS:
+      return {
+        ...state,
+        isWithWeights: !state.isWithWeights,
       };
     case 'RESET':
       return INITIAL_STATE;
