@@ -62,10 +62,6 @@ public class UploadVideo extends Div {
                 }
             } catch (AmazonServiceException | IOException ex) {
                 Notification.show("ERROR " + ex.getMessage());
-            } finally {
-                if(s3client !=null) {
-                    s3client.shutdown();
-                }
             }
         });
     }
