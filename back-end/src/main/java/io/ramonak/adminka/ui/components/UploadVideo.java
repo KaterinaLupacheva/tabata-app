@@ -12,6 +12,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MultiFileMemoryBuffer;
+import elemental.json.Json;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -65,6 +66,7 @@ public class UploadVideo extends Div {
                 if(s3client !=null) {
                     s3client.shutdown();
                 }
+                upload.getElement().setPropertyJson("files", Json.createArray());
             }
         });
     }
