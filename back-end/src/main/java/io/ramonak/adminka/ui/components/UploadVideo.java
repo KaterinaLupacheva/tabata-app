@@ -66,8 +66,11 @@ public class UploadVideo extends Div {
                 if(s3client !=null) {
                     s3client.shutdown();
                 }
-                upload.getElement().setPropertyJson("files", Json.createArray());
             }
         });
+    }
+
+    public void clearFileName() {
+        upload.getElement().setPropertyJson("files", Json.createArray());
     }
 }

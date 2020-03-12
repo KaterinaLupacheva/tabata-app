@@ -23,6 +23,7 @@ class ExerciseView extends VerticalLayout {
     private final ExerciseService exerciseService;
     private final Grid<ExerciseDTO> grid;
     private final ExerciseForm form;
+    private final UploadVideo upload;
 
     public ExerciseView(ExerciseService exerciseService, MuscleGroupService muscleGroupService,
                         @Value("${aws.accessKey}") String accessKey, @Value("${aws.secretKey}") String secretKey) {
@@ -50,16 +51,17 @@ class ExerciseView extends VerticalLayout {
         form.setVisible(false);
         setupClickListenersToButtons();
 
+        upload = new UploadVideo(accessKey, secretKey);
+        upload.uploadVideo(form.getLink());
+        form.addComponentAtIndex(3, upload);
+
         Button addExercise = new Button("Add Exercise");
         addExercise.addThemeVariants(ButtonVariant.MATERIAL_OUTLINED);
         addExercise.addClickListener(e -> {
             grid.asSingleSelect().clear();
             form.setBean(new ExerciseDTO());
+            upload.clearFileName();
         });
-
-        UploadVideo upload = new UploadVideo(accessKey, secretKey);
-        upload.uploadVideo(form.getLink());
-        form.addComponentAtIndex(3, upload);
 
         add(addExercise, mainContent);
     }
