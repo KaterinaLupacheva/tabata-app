@@ -32,3 +32,8 @@ export const selectNextExerciseLink = createSelector(
   [selectWorkout],
   workout => workout.nextExerciseLink
 );
+
+export const selectIsWithWeights = createSelector(
+  [selectWorkout],
+  workout => workout.isWithWeights
+);

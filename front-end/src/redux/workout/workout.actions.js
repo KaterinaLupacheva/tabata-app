@@ -55,3 +55,7 @@ export const previewNextExercise = workoutExercises => ({
 export const resetNextExercise = () => ({
   type: WorkoutActionTypes.RESET_NEXT_EXERCISE,
 });
+
+export const toggleWeights = () => ({
+  type: WorkoutActionTypes.TOGGLE_WEIGHTS,
+});

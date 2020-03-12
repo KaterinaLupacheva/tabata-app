@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import './workout-page.styles.scss';
 import AbsoluteWrapper from '../../components/absolute-wrapper/absolute-wrapper.component';
-import { selectWorkoutExercises } from '../../redux/workout/workout.selectors';
+import {
+  selectWorkoutExercises,
+  selectIsWithWeights,
+  selectIsWorkoutFetching,
+} from '../../redux/workout/workout.selectors';
 import {
   fetchRandomWorkoutStartAsync,
   resetToInitialState,
   resetNextExercise,
 } from '../../redux/workout/workout.actions';
-import { selectIsWorkoutFetching } from '../../redux/workout/workout.selectors';
 import { selectAudioStartStatus, selectAudioStopStatus } from '../../redux/audio/audio.selectors';
 import {
   selectSelectedDuration,
@@ -27,15 +30,12 @@ import CircuitsAndTimer from '../../components/circuits-and-timer/circuits-and-t
 import soundfileStop from '../../assets/3-2-1-stop.mp3';
 import soundfileStart from '../../assets/1-2-3-start.mp3';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
-import WithWeightsContext from '../../contexts/with-weights.context';
 import { VideoContextProvider } from '../../contexts/video.context';
 
 const ExercisesPreviewWithSpinner = WithSpinner(ExercisesPreview);
 
 class WorkoutPage extends React.Component {
-  static contextType = WithWeightsContext;
   state = {
-    checked: this.context.checked,
     showGetReady: true,
   };
 
@@ -48,12 +48,13 @@ class WorkoutPage extends React.Component {
       selectedMuscleGroup,
       resetCurrentCircuit,
       resetNextExercise,
+      isWithWeights,
     } = this.props;
     resetToInitialState();
     resetCurrentCircuit();
     resetNextExercise();
     if (workout.length === 0 && selectedDuration.length !== 0 && selectedMuscleGroup !== 0) {
-      fetchRandomWorkoutStartAsync(selectedDuration * 2, selectedMuscleGroup, this.state.checked);
+      fetchRandomWorkoutStartAsync(selectedDuration * 2, selectedMuscleGroup, isWithWeights);
     } else if (workout.length === 0) {
       this.props.history.push('/create-workout');
     }
@@ -116,6 +117,7 @@ const mapStateToProps = createStructuredSelector({
   numberOfCircuits: selectSelectedCircuit,
   isWorkoutFetching: selectIsWorkoutFetching,
   currentCircuit: selectCurrentCircuit,
+  isWithWeights: selectIsWithWeights,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Route, Switch, Redirect, withRouter, __RouterContext } from 'react-router-dom';
 import { useTransition, animated } from 'react-spring';
 import { connect } from 'react-redux';
@@ -14,7 +14,6 @@ import FinishedPage from './pages/finished-page/finished-page.component';
 import CircuitsPage from './pages/circuits-page/circuits-page.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Header from './components/header/header.component';
-import WithWeightsContext from './contexts/with-weights.context';
 
 const App = () => {
   const { location } = useContext(__RouterContext);
@@ -23,8 +22,6 @@ const App = () => {
     enter: { opacity: 1, transform: 'translate3d(0%,0,-50%)' },
     leave: { opacity: 0, transform: 'translate3d(-50%,0,-50%)' },
   });
-  const [checked, setChecked] = useState(false);
-  const toggleChecked = newChecked => setChecked(newChecked);
 
   return (
     <div className="container">
@@ -45,10 +42,8 @@ const App = () => {
                 this.props.currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
               }
             />
-            <WithWeightsContext.Provider value={{ checked, toggleChecked }}>
-              <Route path="/workout" component={WorkoutPage} />
-              <Route exact path="/parameters" component={ParametersPage} />
-            </WithWeightsContext.Provider>
+            <Route path="/workout" component={WorkoutPage} />
+            <Route exact path="/parameters" component={ParametersPage} />
           </Switch>
         </animated.div>
       ))}
