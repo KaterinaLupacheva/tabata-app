@@ -21,6 +21,7 @@ public class ExerciseForm extends FormLayout {
 
     private final TextField name;
     private final TextField link;
+    private final ComboBox<String> muscleGroupName;
     private Binder<ExerciseDTO> binder;
     private final Button save;
     private final Button delete;
@@ -31,7 +32,7 @@ public class ExerciseForm extends FormLayout {
         setSizeFull();
         name = new TextField("Exercise");
         name.setAutofocus(true);
-        ComboBox<String> muscleGroupName = new ComboBox<>("Muscle group");
+        muscleGroupName = new ComboBox<>("Muscle group");
         muscleGroupName.setItems(muscleGroupService.getAllMuscleGroups().stream()
                                 .map(MuscleGroupDTO::getName)
                                 .collect(Collectors.toList()));
@@ -51,6 +52,7 @@ public class ExerciseForm extends FormLayout {
     private void setupBinder() {
         binder = new Binder<>(ExerciseDTO.class);
         binder.bindInstanceFields(this);
+
     }
 
     public void setBean(ExerciseDTO exerciseDTO) {
