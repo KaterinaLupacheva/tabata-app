@@ -13,7 +13,7 @@ import io.ramonak.adminka.ui.utils.AppConst;
 @Route(AppConst.ROOT)
 @Theme(value = Material.class, variant = Material.DARK)
 @Viewport(AppConst.VIEWPORT)
-@PWA(name = "Tabata Progressive Web App", shortName = "TABATA")
+@PWA(name = "Tabata Progressive Web App", shortName = "TABATA", enableInstallPrompt = false)
 public class MainView extends VerticalLayout implements RouterLayout, HasStyle {
 
     public MainView() {
