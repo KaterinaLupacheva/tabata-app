@@ -60,7 +60,6 @@ class ExerciseView extends VerticalLayout {
         addExercise.addClickListener(e -> {
             grid.asSingleSelect().clear();
             form.setBean(new ExerciseDTO());
-            upload.clearFileName();
         });
 
         add(addExercise, mainContent);
@@ -81,6 +80,7 @@ class ExerciseView extends VerticalLayout {
         exerciseService.saveExercise(form.getBinder().getBean());
         updateList();
         form.setBean(null);
+        upload.clearFileName();
     }
 
     private void delete() {
@@ -90,6 +90,7 @@ class ExerciseView extends VerticalLayout {
     }
 
     private void cancel() {
+        upload.clearFileName();
         form.setBean(null);
     }
 }
