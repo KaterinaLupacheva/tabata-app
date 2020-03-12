@@ -49,14 +49,16 @@ public class UploadVideo extends Div {
         upload.addSucceededListener(event-> {
             try {
                 InputStream is = buffer.getInputStream(event.getFileName());
-                File targetFile = new File("C:/Testfolder/folder/" + event.getFileName());
-                FileUtils.copyInputStreamToFile(is, targetFile);
-                String objectKey = targetFile.getName();
-                s3client.putObject(new PutObjectRequest("tabata-video", "video/" + objectKey, targetFile)
+                File tempFile = new File("C:/Testfolder/folder/" + event.getFileName());
+                FileUtils.copyInputStreamToFile(is, tempFile);
+                String objectKey = tempFile.getName();
+                s3client.putObject(new PutObjectRequest("tabata-video", "video/" + objectKey, tempFile)
                         .withCannedAcl(CannedAccessControlList.PublicRead));
                 String url = s3client.getUrl("tabata-video", "video/" + objectKey).toString();
                 link.setValue(url);
-                targetFile.delete();
+                if(tempFile.exists()) {
+                    tempFile.delete();
+                }
             } catch (AmazonServiceException | IOException ex) {
                 Notification.show("ERROR " + ex.getMessage());
             } finally {
