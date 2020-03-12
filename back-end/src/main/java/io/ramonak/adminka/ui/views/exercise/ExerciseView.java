@@ -9,11 +9,13 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.Route;
+import io.ramonak.adminka.ui.components.UploadVideo;
 import io.ramonak.adminka.ui.utils.AppConst;
 import io.ramonak.adminka.ui.views.MainView;
 import io.ramonak.service.dto.ExerciseDTO;
 import io.ramonak.service.services.ExerciseService;
 import io.ramonak.service.services.MuscleGroupService;
+import org.springframework.beans.factory.annotation.Value;
 
 @Route(value = AppConst.ROOT + "/" + AppConst.PAGE_EXERCISE, layout = MainView.class)
 class ExerciseView extends VerticalLayout {
@@ -22,7 +24,8 @@ class ExerciseView extends VerticalLayout {
     private final Grid<ExerciseDTO> grid;
     private final ExerciseForm form;
 
-    public ExerciseView(ExerciseService exerciseService, MuscleGroupService muscleGroupService) {
+    public ExerciseView(ExerciseService exerciseService, MuscleGroupService muscleGroupService,
+                        @Value("${aws.accessKey}") String accessKey, @Value("${aws.secretKey}") String secretKey) {
         setSizeFull();
 
         this.exerciseService = exerciseService;
@@ -34,11 +37,10 @@ class ExerciseView extends VerticalLayout {
             Checkbox checkbox = new Checkbox();
             if(ex.getIsWithWeights()==null) {
                 checkbox.setValue(false);
-                return checkbox;
             } else {
                 checkbox.setValue(ex.getIsWithWeights());
-                return checkbox;
             }
+            return checkbox;
         })).setHeader("Weights");
         updateList();
         grid.asSingleSelect().addValueChangeListener(e -> form.setBean(e.getValue()));
@@ -54,6 +56,11 @@ class ExerciseView extends VerticalLayout {
             grid.asSingleSelect().clear();
             form.setBean(new ExerciseDTO());
         });
+
+        UploadVideo upload = new UploadVideo(accessKey, secretKey);
+        upload.uploadVideo(form.getLink());
+        form.addComponentAtIndex(3, upload);
+
         add(addExercise, mainContent);
     }
 

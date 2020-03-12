@@ -14,35 +14,28 @@ import io.ramonak.service.dto.MuscleGroupDTO;
 import io.ramonak.service.services.ExerciseService;
 import io.ramonak.service.services.MuscleGroupService;
 
-import java.util.Arrays;
 import java.util.stream.Collectors;
 
 @SpringComponent
 public class ExerciseForm extends FormLayout {
 
     private final TextField name;
-    private final ComboBox<String> muscleGroupName;
-    private final Checkbox isWithWeights;
     private final TextField link;
     private Binder<ExerciseDTO> binder;
-    private final ExerciseService exerciseService;
-    private final MuscleGroupService muscleGroupService;
     private final Button save;
     private final Button delete;
     private final Button cancel;
 
     public ExerciseForm(ExerciseService exerciseService,
                         MuscleGroupService muscleGroupService) {
-        this.exerciseService = exerciseService;
-        this.muscleGroupService = muscleGroupService;
         setSizeFull();
         name = new TextField("Exercise");
         name.setAutofocus(true);
-        muscleGroupName = new ComboBox<>("Muscle group");
+        ComboBox<String> muscleGroupName = new ComboBox<>("Muscle group");
         muscleGroupName.setItems(muscleGroupService.getAllMuscleGroups().stream()
                                 .map(MuscleGroupDTO::getName)
                                 .collect(Collectors.toList()));
-        isWithWeights = new Checkbox("Weights");
+        Checkbox isWithWeights = new Checkbox("Weights");
         link = new TextField("Video / image");
         save = new Button("Save");
         delete = new Button("Delete");
@@ -85,4 +78,6 @@ public class ExerciseForm extends FormLayout {
     public Binder<ExerciseDTO> getBinder() {
         return binder;
     }
+
+    public TextField getLink() {return link; }
 }
