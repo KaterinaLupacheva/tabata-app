@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Route, Switch, Redirect, withRouter, __RouterContext } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter, useLocation } from 'react-router-dom';
 import { useTransition, animated } from 'react-spring';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
@@ -16,7 +16,7 @@ import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up
 import Header from './components/header/header.component';
 
 const App = () => {
-  const { location } = useContext(__RouterContext);
+  const location = useLocation();
   const transitions = useTransition(location, location => location.pathname, {
     from: { opacity: 0, transform: 'translate3d(100%,0,-50%)' },
     enter: { opacity: 1, transform: 'translate3d(0%,0,-50%)' },
