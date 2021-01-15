@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Route, Switch, Redirect, withRouter, useLocation } from 'react-router-dom';
 import { useTransition, animated } from 'react-spring';
 import { connect } from 'react-redux';
