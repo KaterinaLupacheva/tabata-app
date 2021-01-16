@@ -12,6 +12,7 @@ import './timer.styles.scss';
 
 import TimerMachine from 'react-timer-machine';
 import moment from 'moment';
+require("moment-duration-format");
 
 const Timer = ({
   handleCompleteTimer,
