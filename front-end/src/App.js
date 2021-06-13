@@ -14,6 +14,7 @@ import FinishedPage from './pages/finished-page/finished-page.component';
 import CircuitsPage from './pages/circuits-page/circuits-page.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Header from './components/header/header.component';
+import useViewCounter from './useViewCounter.hook';
 
 const App = () => {
   const location = useLocation();
@@ -22,6 +23,8 @@ const App = () => {
     enter: { opacity: 1, transform: 'translate3d(0%,0,-50%)' },
     leave: { opacity: 0, transform: 'translate3d(-50%,0,-50%)' },
   });
+
+  useViewCounter();
 
   return (
     <div className="container">
